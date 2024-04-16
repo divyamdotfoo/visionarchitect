@@ -5,12 +5,12 @@ export function HeroImageGallery() {
     <div className=" max-w-2xl grid md:grid-cols-2 grid-cols-1 gap-x-2 gap-y-6 relative">
       <div className=" flex flex-col gap-2 animate-autoscrollup ">
         {[1, 2, 3, 4].map((_, i) => (
-          <HeroImage path={`/hero${_}.jpg`} />
+          <HeroImage path={`/hero${_}.jpg`} key={i} />
         ))}
       </div>
       <div className=" flex flex-col gap-2 animate-autoscrolldown ">
         {[5, 6, 7, 8].map((_, i) => (
-          <HeroImage path={`/hero${_}.jpg`} />
+          <HeroImage path={`/hero${_}.jpg`} key={i} />
         ))}
       </div>
     </div>

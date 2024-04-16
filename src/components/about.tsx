@@ -30,7 +30,7 @@ export function About() {
         </div>
         <div className=" max-w-xl tracking-tight opacity-90 pt-4 md:pt-0 flex flex-col gap-2">
           <p>
-            Welcome to Vision Architect, founded by{" "}
+            Welcome to Vision Architect, founded by
             <span className=" font-semibold text-primary">Ujjwal Kapoor</span>,
             a visionary architect with a Bachelor of Science degree in
             architecture from 2018. With six years of excellence in the
@@ -40,7 +40,7 @@ export function About() {
           <p>
             Our firm specializes in contract-based projects, where every design
             is crafted with meticulous attention to detail and a deep
-            understanding of our clients' needs. At Vision Architect, we believe
+            understanding of our clients needs. At Vision Architect, we believe
             in the power of innovative design and sustainable solutions.
           </p>
           <p>
