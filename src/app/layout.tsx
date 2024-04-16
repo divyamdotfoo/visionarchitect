@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto, Ubuntu } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/navbar";
+import { Navbar, NavbarMobile } from "@/components/navbar";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
@@ -19,11 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={ubuntu.className}>
-        <div className=" bg-background text-color">
-          <Navbar />
-          {children}
-        </div>
+      <body className={`${ubuntu.className} bg-background text-color`}>
+        <Navbar />
+        <NavbarMobile />
+        {children}
       </body>
     </html>
   );
