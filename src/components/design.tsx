@@ -62,7 +62,7 @@ export function DesignCard({
         <Carousel className=" lg:max-w-sm md:max-w-xs">
           <CarouselContent className="">
             {images?.map((image) => (
-              <CarouselItem className=" overflow-hidden">
+              <CarouselItem key={header} className=" overflow-hidden">
                 <Image
                   src={image.url}
                   width={1500}
