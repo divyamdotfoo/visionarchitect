@@ -1,15 +1,26 @@
 import React from "react";
-import _ from "lodash";
 import { HeroHeader } from "./hero-header";
 import { HeroImageGallery } from "./hero-gallery";
+import { HeroMobileGallery } from "./client/gallery";
 
-export function Hero() {
+export function Hero({ dataUrls }: { dataUrls: Map<string, string> }) {
   return (
-    <section className="flex gap-10 items-center justify-around p-4 h-screen overflow-hidden snap-center">
+    <section className="md:flex hidden gap-10 items-center justify-around p-4 h-screen overflow-hidden snap-center">
       <HeroHeader />
-      <HeroImageGallery />
+      <HeroImageGallery dataUrls={dataUrls} />
     </section>
   );
 }
 
-export function HeroMobile() {}
+export function HeroMobile({ dataUrls }: { dataUrls: Map<string, string> }) {
+  return (
+    <>
+      <section className="md:hidden h-screen flex justify-center">
+        <div className=" max-w-sm px-2">
+          <HeroHeader />
+        </div>
+      </section>
+      <HeroMobileGallery dataUrls={dataUrls} />
+    </>
+  );
+}

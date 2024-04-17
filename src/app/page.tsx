@@ -1,12 +1,14 @@
 import { Design } from "@/components/design";
-import { Hero } from "@/components/hero";
+import { Hero, HeroMobile } from "@/components/hero";
 import { SpotLight } from "@/components/spotlight";
-
-export default function Page() {
+import { generateUrl } from "@/server";
+export default async function Page() {
+  const dataUrls = await generateUrl("hero");
   return (
     <div className=" snap-y snap-proximity relative pt-14">
       <SpotLight />
-      <Hero />
+      <Hero dataUrls={dataUrls} />
+      <HeroMobile dataUrls={dataUrls} />
       <Design />
     </div>
   );

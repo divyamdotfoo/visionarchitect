@@ -4,12 +4,6 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetOverlay,
-  SheetPortal,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { MenuIcon } from "lucide-react";
@@ -54,7 +48,7 @@ function NavLink({ path, name }: { path: string; name: string }) {
 
 export function NavbarMobile() {
   return (
-    <div className=" flex items-center justify-between py-2 px-2 md:hidden">
+    <div className=" flex items-center justify-between py-2 pl-4 pr-2 md:hidden">
       <Link href={"/"}>
         <Image
           src={"/logo.png"}
@@ -66,7 +60,7 @@ export function NavbarMobile() {
       <div className=" flex items-center gap-4">
         <Link
           href={""}
-          className=" bg-primary text-background px-4 py-1 text-xl rounded-3xl animate-alert font-medium"
+          className=" bg-primary text-background px-4 py-1 text-lg rounded-3xl animate-alert font-medium"
         >
           Contact us
         </Link>
@@ -88,7 +82,7 @@ export function HamburgerMenu() {
       <Sheet>
         <SheetTrigger asChild>
           <button>
-            <MenuIcon className=" w-12 h-12" />
+            <MenuIcon className=" w-10 h-10 translate-y-1" />
           </button>
         </SheetTrigger>
         <SheetContent className="">
@@ -135,6 +129,7 @@ function HamLink({
       >
         {name}
       </Link>
+
       {separator ? <Separator className=" w-full bg-white" /> : null}
     </div>
   );

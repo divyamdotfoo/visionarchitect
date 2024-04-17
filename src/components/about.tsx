@@ -1,13 +1,11 @@
 import Image from "next/image";
-import { Separator } from "./ui/separator";
 import { HandlesList } from "./socials";
-
-export function About() {
+export function About({ dataUrls }: { dataUrls: Map<string, string> }) {
   return (
     <div className=" w-full h-screen flex justify-center md:pt-24 px-4 pb-8 pt-2">
       <div className=" md:flex md:items-start md:flex-row gap-10 flex-col">
         <div className=" flex md:flex-col gap-2 items-center">
-          <div className=" border-2 border-secondary md:rounded-lg md:w-48 sm:w-40 sm:h-40 w-28 h-28 md:h-auto rounded-full overflow-hidden">
+          <div className=" border-2 border-secondary md:rounded-lg md:min-w-48 md:min-h-72 sm:w-40 sm:min-h-40 w-28 h-28 md:h-auto rounded-full overflow-hidden">
             <Image
               src={"/client-profile.jpg"}
               width={1000}
@@ -15,6 +13,8 @@ export function About() {
               className=" w-full h-full rounded-lg md:scale-105 scale-150 translate-y-6 sm:translate-y-8 md:translate-y-0"
               objectFit="cover"
               alt="Profile picture of Ujjwal kapoor(founder of Vision architect)."
+              placeholder="blur"
+              blurDataURL={dataUrls.get("client-profile") || ""}
             />
           </div>
           <div className="">
@@ -30,7 +30,7 @@ export function About() {
         </div>
         <div className=" max-w-xl tracking-tight opacity-90 pt-4 md:pt-0 flex flex-col gap-2">
           <p>
-            Welcome to Vision Architect, founded by
+            Welcome to Vision Architect, founded by{" "}
             <span className=" font-semibold text-primary">Ujjwal Kapoor</span>,
             a visionary architect with a Bachelor of Science degree in
             architecture from 2018. With six years of excellence in the

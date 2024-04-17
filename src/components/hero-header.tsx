@@ -2,16 +2,16 @@ import _ from "lodash";
 import Link from "next/link";
 export function HeroHeader() {
   return (
-    <div className="flex flex-col gap-2 lg:max-w-lg md:max-w-md items-start mt-10 md:my-0 col-start-1 col-end-2">
+    <div className="flex flex-col gap-2 lg:max-w-lg md:max-w-md md:items-start items-center mt-10 md:my-0 col-start-1 col-end-2">
       <Sparkles>
-        <h1 className="lg:text-5xl xl:text-6xl md:text-4xl  text-primary font-bold">
+        <h1 className="lg:text-4xl xl:text-6xl text-4xl md:text-3xl  text-primary font-bold">
           Vision Architects
         </h1>
       </Sparkles>
       <h2 className=" xl:text-xl lg:text-lg md:text-base  translate-x-3 text-color opacity-90 font-semibold">
         From concept to creation.
       </h2>
-      <h3 className=" text-wrap xl:text-lg lg:text-base md:text-sm opacity-80 translate-x-3 font-light xl:max-w-sm lg:max-w-xs md:max-w-72">
+      <h3 className=" text-wrap pt-4 px-8 md:px-0 md:pt-0 xl:text-lg lg:text-base md:text-sm opacity-80 translate-x-3 font-light xl:max-w-sm lg:max-w-xs md:max-w-72">
         Step into the world, where architectural dreams take shape with
         precision. With a focus on contract-based projects, we bring expertise
         and creativity to every blueprint.
