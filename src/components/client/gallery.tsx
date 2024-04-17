@@ -47,7 +47,7 @@ export function HeroMobileGallery({
                 i * 4
               }px)`,
               zIndex: i * 10,
-              height: "calc(100vh - 100px)",
+              height: "calc(100vh - 200px)",
             }}
           >
             <Image
