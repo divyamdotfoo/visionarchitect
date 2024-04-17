@@ -20,9 +20,9 @@ export function Navbar() {
         />
       </Link>
       <div className=" flex items-center justify-between gap-8">
-        <NavLink path="/designs" name="Designs" />
-        <NavLink path="/projects" name="Projects" />
-        <NavLink path="/customers" name="Customers" />
+        <NavLink path="/#designs" name="Designs" />
+        <NavLink path="/#projects" name="Projects" />
+        <NavLink path="/#customers" name="Customers" />
         <NavLink path="/about" name="About" />
       </div>
       <Link
@@ -72,9 +72,9 @@ export function NavbarMobile() {
 
 export function HamburgerMenu() {
   const hamLinks = [
-    { name: "Designs", path: "/designs" },
-    { name: "Projects", path: "/projects" },
-    { name: "Customers", path: "/customers" },
+    { name: "Designs", path: "/#designs" },
+    { name: "Projects", path: "/#projects" },
+    { name: "Customers", path: "/#customers" },
     { name: "About", path: "/about" },
   ];
   return (

@@ -1,5 +1,6 @@
 import { Design } from "@/components/design";
 import { Hero, HeroMobile } from "@/components/hero";
+import { Projects } from "@/components/projects";
 import { SpotLight } from "@/components/spotlight";
 import { generateUrl } from "@/server";
 export default async function Page() {
@@ -10,6 +11,7 @@ export default async function Page() {
       <Hero dataUrls={dataUrls} />
       <HeroMobile dataUrls={dataUrls} />
       <Design />
+      <Projects />
     </div>
   );
 }

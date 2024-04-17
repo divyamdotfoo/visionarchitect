@@ -5,12 +5,6 @@ export function HandlesList() {
   return (
     <div className=" flex items-center gap-3">
       <Link
-        href={"https://twitter.com/visionarchitect"}
-        className=" cursor-pointer"
-      >
-        <Twitter />
-      </Link>
-      <Link
         href={"https://wa.me/917668761558"}
         target="_blank"
         className=" cursor-pointer"
@@ -28,7 +22,7 @@ export function HandlesList() {
         <Mail />
       </a>
       <Link href={"tel:+918755549338"}>
-        <Phone className=" w-5 h-5" stroke="darkblue" />
+        <Phone className=" w-5 h-5" stroke="white" />
       </Link>
     </div>
   );
