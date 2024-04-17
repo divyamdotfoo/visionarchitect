@@ -26,8 +26,8 @@ export function Design() {
         Where Imagination Meets Precision: Explore Our Signature Designs.
       </h3>
       <div className=" md:grid-cols-3 grid-cols-1 gap-4 pt-4 grid xl:gap-20 lg:gap-16 xl:pt-12 lg:pt-8 md:pt-6 md:gap-12">
-        {[1, 2, 3].map(() => (
-          <DesignCard images={testImages} header="Space Savy" />
+        {[1, 2, 3].map((_) => (
+          <DesignCard images={testImages} key={_} header="Space Savy" />
         ))}
       </div>
     </section>
