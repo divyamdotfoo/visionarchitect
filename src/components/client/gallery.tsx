@@ -25,7 +25,7 @@ export function HeroMobileGallery({
     }
   }, [images]);
   return (
-    <section className="md:hidden h-screen relative flex justify-center snap-start">
+    <section className="md:hidden h-screen relative flex justify-center snap-start pt-4">
       <div className=" relative">
         <div className=" absolute top-4 left-0 right-0 h-8 bg-primary opacity-20 blur-xl"></div>
         <h2 className=" text-3xl font-bold">Architectural Delights</h2>
@@ -36,7 +36,7 @@ export function HeroMobileGallery({
           flickOnSwipe={true}
           swipeRequirementType="position"
           swipeThreshold={80}
-          className="absolute top-12"
+          className="absolute top-16"
           onSwipe={(direction) => onSwipeHandler()}
           onCardLeftScreen={(direction) => onSwipeHandler()}
         >

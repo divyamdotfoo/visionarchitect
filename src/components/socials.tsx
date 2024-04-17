@@ -11,7 +11,7 @@ export function HandlesList() {
         <Twitter />
       </Link>
       <Link
-        href={"https://wa.me/918755549338"}
+        href={"https://wa.me/917668761558"}
         target="_blank"
         className=" cursor-pointer"
       >

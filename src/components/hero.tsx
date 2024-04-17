@@ -15,7 +15,7 @@ export function Hero({ dataUrls }: { dataUrls: Map<string, string> }) {
 export function HeroMobile({ dataUrls }: { dataUrls: Map<string, string> }) {
   return (
     <>
-      <section className="md:hidden h-screen flex justify-center snap-start">
+      <section className="md:hidden h-screen flex justify-center items-center snap-start">
         <div className=" max-w-sm px-2">
           <HeroHeader />
         </div>
