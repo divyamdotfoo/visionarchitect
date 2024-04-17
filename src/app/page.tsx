@@ -5,7 +5,7 @@ import { generateUrl } from "@/server";
 export default async function Page() {
   const dataUrls = await generateUrl("hero");
   return (
-    <div className=" snap-y snap-proximity relative pt-14">
+    <div className="relative pt-14 h-screen overflow-y-scroll  snap-mandatory snap-y">
       <SpotLight />
       <Hero dataUrls={dataUrls} />
       <HeroMobile dataUrls={dataUrls} />

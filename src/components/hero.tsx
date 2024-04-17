@@ -5,7 +5,7 @@ import { HeroMobileGallery } from "./client/gallery";
 
 export function Hero({ dataUrls }: { dataUrls: Map<string, string> }) {
   return (
-    <section className="md:flex hidden gap-10 items-center justify-around p-4 h-screen overflow-hidden snap-center">
+    <section className="md:flex hidden gap-10 items-center justify-around p-4 h-screen overflow-hidden snap-start">
       <HeroHeader />
       <HeroImageGallery dataUrls={dataUrls} />
     </section>
@@ -15,7 +15,7 @@ export function Hero({ dataUrls }: { dataUrls: Map<string, string> }) {
 export function HeroMobile({ dataUrls }: { dataUrls: Map<string, string> }) {
   return (
     <>
-      <section className="md:hidden h-screen flex justify-center">
+      <section className="md:hidden h-screen flex justify-center snap-start">
         <div className=" max-w-sm px-2">
           <HeroHeader />
         </div>
