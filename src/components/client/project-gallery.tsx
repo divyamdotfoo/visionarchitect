@@ -20,6 +20,7 @@ export function ProjectGallery() {
           )
           .map((images, i) => (
             <div
+              key={i}
               className=" flex items-center justify-center gap-4 flex-nowrap"
               style={{
                 transform: `translate(${pos.x - 500}px,${pos.y - 500}px)`,
@@ -29,6 +30,7 @@ export function ProjectGallery() {
             >
               {images.map((image) => (
                 <div
+                  key={image}
                   className=" overflow-hidden h-72"
                   style={{ flex: "0 0 auto" }}
                 >

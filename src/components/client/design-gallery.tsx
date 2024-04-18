@@ -34,8 +34,8 @@ export function DesignMobileCarousel() {
       >
         <CarouselContent className="">
           {[1, 2, 3].map((_) => (
-            <CarouselItem>
-              <DesignCard images={testImages} key={_} header="Space Savy" />
+            <CarouselItem key={_}>
+              <DesignCard images={testImages} header="Space Savy" />
             </CarouselItem>
           ))}
         </CarouselContent>
@@ -43,6 +43,7 @@ export function DesignMobileCarousel() {
       <div className=" flex items-center gap-2">
         {Array.from({ length: count }).map((_, i) => (
           <div
+            key={i}
             className={`w-2 h-2 rounded-full ${
               current === i + 1 ? "bg-primary" : "bg-white"
             }`}
