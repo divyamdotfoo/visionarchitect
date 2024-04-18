@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/sheet";
 import { MenuIcon } from "lucide-react";
 import { Separator } from "./ui/separator";
+import { NavLink as ScrollableNavLink } from "@/components/client/scroll-btns";
 export function Navbar() {
   return (
     <div className="hidden md:flex items-center justify-between lg:px-8 py-3 bg-background text-color fixed top-0 left-0 right-0 z-40 ">
@@ -20,9 +21,9 @@ export function Navbar() {
         />
       </Link>
       <div className=" flex items-center justify-between gap-8">
-        <NavLink path="/#designs" name="Designs" />
-        <NavLink path="/#projects" name="Projects" />
-        <NavLink path="/#customers" name="Customers" />
+        <ScrollableNavLink id="designs" name="Designs" />
+        <ScrollableNavLink id="projects" name="Projects" />
+        <ScrollableNavLink id="customers" name="Customers" />
         <NavLink path="/about" name="About" />
       </div>
       <Link

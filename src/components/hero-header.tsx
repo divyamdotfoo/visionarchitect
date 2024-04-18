@@ -1,8 +1,9 @@
 import _ from "lodash";
 import Link from "next/link";
+import { KnowMoreBtn } from "./client/scroll-btns";
 export function HeroHeader() {
   return (
-    <div className="flex flex-col gap-2 lg:max-w-lg md:max-w-md md:items-start items-center mt-10 md:my-0 col-start-1 col-end-2">
+    <div className="flex flex-col gap-2 lg:max-w-lg md:max-w-md md:items-start items-center mt-10 md:my-0 col-start-1 col-end-2 md:translate-y-0 md:translate-x-0 -translate-y-[20%]">
       <Sparkles>
         <h1 className="lg:text-4xl xl:text-6xl text-4xl md:text-3xl  text-primary font-bold">
           Vision Architects
@@ -17,11 +18,12 @@ export function HeroHeader() {
         and creativity to every blueprint.
       </h3>
       <Link
-        href={"#projects"}
-        className=" px-4 py-1 font-medium translate-x-3 mt-8 bg-secondary rounded-lg border shadow-sm border-white"
+        href={"/#hero-mobile-gallery"}
+        className="md:hidden px-4 py-1 font-medium translate-x-3 mt-8 bg-secondary rounded-lg border shadow-sm border-white"
       >
         Know more
       </Link>
+      <KnowMoreBtn />
     </div>
   );
 }

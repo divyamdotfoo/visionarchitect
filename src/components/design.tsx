@@ -7,6 +7,7 @@ import {
   CarouselPrevious,
 } from "./ui/carousel";
 import { Dialog, DialogTrigger, DialogContent } from "./ui/dialog";
+import { DesignMobileCarousel } from "./client/design-gallery";
 
 export function Design() {
   const testImages = [
@@ -22,14 +23,15 @@ export function Design() {
       <h2 className=" md:text-6xl text-4xl font-medium text-primary">
         Designs
       </h2>
-      <h3 className=" opacity-80 font-bold  pt-2">
+      <h3 className=" opacity-80 font-medium  pt-2">
         Where Imagination Meets Precision: Explore Our Signature Designs.
       </h3>
-      <div className=" md:grid-cols-3 grid-cols-1 gap-4 pt-4 grid xl:gap-20 lg:gap-16 xl:pt-12 lg:pt-8 md:pt-6 md:gap-12">
+      <div className=" md:grid-cols-3 hidden gap-4 pt-4 md:grid xl:gap-20 lg:gap-16 xl:pt-12 lg:pt-8 md:pt-6 md:gap-12">
         {[1, 2, 3].map((_) => (
           <DesignCard images={testImages} key={_} header="Space Savy" />
         ))}
       </div>
+      <DesignMobileCarousel />
     </section>
   );
 }
@@ -51,7 +53,7 @@ export function DesignCard({
     <Dialog>
       <DialogTrigger>
         <div
-          className=" w-full opacity-30 xl:h-96 lg:h-80 md:h-64 rounded-lg border-2 border-secondary shadow-lg shadow-secondary"
+          className="opacity-30 xl:h-96 lg:h-80 md:h-64 h-48 rounded-lg border-2 border-secondary shadow-lg shadow-secondary w-80 sm:w-96 md:w-auto"
           style={{
             height: "calc(100vh - 300px)",
           }}
@@ -59,7 +61,7 @@ export function DesignCard({
       </DialogTrigger>
       <DialogContent className=" border-none flex flex-col gap-2 items-center justify-center py-2">
         <p className=" text-xl font-medium ">{header}</p>
-        <Carousel className=" lg:max-w-sm md:max-w-xs">
+        <Carousel className=" lg:max-w-sm md:max-w-xs max-w-64">
           <CarouselContent className="">
             {images?.map((image) => (
               <CarouselItem key={header} className=" overflow-hidden">
