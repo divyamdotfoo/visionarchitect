@@ -6,9 +6,9 @@ import TinderCard from "react-tinder-card";
 export function HeroMobileGallery({
   dataUrls,
 }: {
-  dataUrls: Map<string, string>;
+  dataUrls: Map<string, { url: string; dataUrl: string }>;
 }) {
-  const initialImages = () => [1, 2, 3, 4, 5, 6, 7, 8].map((_) => `hero${_}`);
+  const initialImages = () => Array.from(dataUrls.keys());
   const [images, setImages] = useState(initialImages);
   const onSwipeHandler = () => {
     const allImages = [...images];
@@ -44,22 +44,22 @@ export function HeroMobileGallery({
           onCardLeftScreen={(direction) => onSwipeHandler()}
         >
           <div
-            className="sm:max-w-lg max-w-xs mx-4  rounded-lg border-2 border-secondary overflow-hidden shadow-md shadow-secondary"
+            className="sm:w-[512px] w-[320px] mx-4  rounded-lg border-2 border-secondary overflow-hidden shadow-md shadow-secondary"
             style={{
-              transform: `rotate(${i % 2 === 0 ? -1 : 1}deg) translate(0px,${
-                i * 4
-              }px)`,
-              zIndex: i * 10,
+              zIndex: images.length - i,
               height: "calc(100vh - 350px)",
             }}
           >
             <Image
-              src={`/${_}.jpg`}
+              src={dataUrls.get(_)?.url!}
               alt="gallery image"
               width={1500}
               height={1500}
               className=" w-full h-full scale-105 rounded-lg"
               objectFit="cover"
+              placeholder="blur"
+              blurDataURL={dataUrls.get(_)?.dataUrl!}
+              loading="lazy"
             />
           </div>
         </TinderCard>

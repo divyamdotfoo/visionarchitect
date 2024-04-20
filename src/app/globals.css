@@ -12,6 +12,9 @@
     --secondary: #ffffff26;
     --card: #000000;
   }
+  .Footer {
+    display: none !important;
+  }
 }
 @keyframes alert {
   0% {

@@ -3,7 +3,11 @@ import { HeroHeader } from "./hero-header";
 import { HeroImageGallery } from "./hero-gallery";
 import { HeroMobileGallery } from "./client/gallery";
 
-export function Hero({ dataUrls }: { dataUrls: Map<string, string> }) {
+export function Hero({
+  dataUrls,
+}: {
+  dataUrls: Map<string, { url: string; dataUrl: string }>;
+}) {
   return (
     <section className="md:flex hidden gap-10 items-center justify-around p-4 h-screen overflow-hidden snap-start">
       <HeroHeader />
@@ -12,7 +16,11 @@ export function Hero({ dataUrls }: { dataUrls: Map<string, string> }) {
   );
 }
 
-export function HeroMobile({ dataUrls }: { dataUrls: Map<string, string> }) {
+export function HeroMobile({
+  dataUrls,
+}: {
+  dataUrls: Map<string, { url: string; dataUrl: string }>;
+}) {
   return (
     <>
       <section className="md:hidden h-screen flex justify-center items-center snap-start">

@@ -23,7 +23,15 @@ export function KnowMoreBtn() {
   );
 }
 
-export function NavLink({ id, name }: { id: string; name: string }) {
+export function NavLink({
+  id,
+  name,
+  styles,
+}: {
+  id: string;
+  name: string;
+  styles?: string;
+}) {
   const [section, setSection] = useState<HTMLElement | null>(null);
   const router = useRouter();
   const pathname = usePathname();
@@ -42,7 +50,10 @@ export function NavLink({ id, name }: { id: string; name: string }) {
           behavior: "smooth",
         });
       }}
-      className=" text-color hover:text-primary font-medium opacity-90 hover:opacity-100"
+      className={`${
+        styles ||
+        " text-color hover:text-primary font-medium opacity-90 hover:opacity-100"
+      }`}
     >
       {name}
     </button>

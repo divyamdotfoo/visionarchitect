@@ -18,6 +18,7 @@ export function Navbar() {
           width={60}
           height={40}
           alt="Vision architect logo"
+          loading="eager"
         />
       </Link>
       <div className=" flex items-center justify-between gap-8">
@@ -26,12 +27,11 @@ export function Navbar() {
         <ScrollableNavLink id="customers" name="Customers" />
         <NavLink path="/about" name="About" />
       </div>
-      <Link
-        href={""}
-        className=" bg-primary text-background px-4 py-1 rounded-3xl animate-alert font-semibold "
-      >
-        Contact us
-      </Link>
+      <ScrollableNavLink
+        styles="bg-primary text-background px-4 py-1 rounded-3xl animate-alert font-semibold"
+        id="contact-us"
+        name="Contact us"
+      />
     </div>
   );
 }
@@ -56,15 +56,17 @@ export function NavbarMobile() {
           alt="Vision architect branding logo"
           width={60}
           height={60}
+          loading="eager"
         />
       </Link>
       <div className=" flex items-center gap-4">
         <Link
-          href={""}
-          className=" bg-primary text-background px-4 py-1 text-lg rounded-3xl animate-alert font-medium"
+          className="bg-primary text-background px-4 py-1 rounded-3xl animate-alert font-semibold"
+          href={"https://wa.me/917668761558"}
         >
           Contact us
         </Link>
+
         <HamburgerMenu />
       </div>
     </div>

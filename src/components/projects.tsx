@@ -1,12 +1,13 @@
 import { ProjectGallery } from "./client/project-gallery";
-
-export function Projects() {
+import fs from "fs/promises";
+export async function Projects() {
+  const videos = (await fs.readdir("public/videos")).map((v) => `/videos/${v}`);
   return (
     <section
       id="projects"
       className=" h-screen w-full snap-start md:pt-20 flex items-center justify-center"
     >
-      <ProjectGallery />
+      <ProjectGallery videos={videos} />
     </section>
   );
 }

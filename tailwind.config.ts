@@ -29,6 +29,11 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        scroll: {
+          to: {
+            transform: "translate(0px, calc(-20% - 0.5rem))",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -38,6 +43,8 @@ const config = {
         autoscrollup: "autoscrollup 30s infinite linear forwards",
         autoscrolldown: "autoscrolldown 30s infinite linear forwards",
         spotlight: "spotlight 4s ease-out forwards",
+        scroll:
+          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },
     },
   },

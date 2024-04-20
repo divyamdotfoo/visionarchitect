@@ -15,6 +15,7 @@ export function About({ dataUrls }: { dataUrls: Map<string, string> }) {
               alt="Profile picture of Ujjwal kapoor(founder of Vision architect)."
               placeholder="blur"
               blurDataURL={dataUrls.get("client-profile") || ""}
+              loading="lazy"
             />
           </div>
           <div className="">

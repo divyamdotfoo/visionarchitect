@@ -1,53 +1,73 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-export function ProjectGallery() {
+export function ProjectGallery({ videos }: { videos: string[] }) {
   const [pos, setPos] = useState({ x: 0, y: 0 });
   return (
     <div
-      className="hidden sm:block overflow-hidden md:w-[750px] lg:w-[900px] mx-2 h-full bg-card mb-10"
-      onMouseMove={(e) =>
+      className=" xl:w-[1100px] bg-card xl:h-[500px] overflow-hidden flex items-center justify-center"
+      onMouseMove={(e) => {
+        const newX = e.clientX - e.currentTarget.getBoundingClientRect().left;
+        const newY = e.clientY - e.currentTarget.getBoundingClientRect().top;
         setPos({
-          x: e.clientX - e.currentTarget.getBoundingClientRect().left,
-          y: e.clientY - e.currentTarget.getBoundingClientRect().top,
-        })
-      }
+          x:
+            550 - newX < 0
+              ? Math.max(550 - newX, -220)
+              : Math.min(550 - newX, 220),
+          y:
+            250 - newY < 0
+              ? Math.max(250 - newY, -205)
+              : Math.min(250 - newY, 205),
+        });
+      }}
+      onMouseLeave={(e) => {
+        setPos({ x: 0, y: 0 });
+      }}
     >
-      <div className="w-full h-full flex flex-col gap-4" style={{}}>
-        {Array.from({ length: 3 })
-          .map(() =>
-            Array.from({ length: 5 }).map((_, i) => `/hero${i + 1}.jpg`)
-          )
-          .map((images, i) => (
-            <div
-              key={i}
-              className=" flex items-center justify-center gap-4 flex-nowrap"
-              style={{
-                transform: `translate(${pos.x - 500}px,${pos.y - 500}px)`,
-                transition: "ease-in",
-                transitionDuration: "500ms",
-              }}
-            >
-              {images.map((image) => (
-                <div
-                  key={image}
-                  className=" overflow-hidden h-72"
-                  style={{ flex: "0 0 auto" }}
-                >
-                  <Image
-                    src={image}
-                    alt="image"
-                    width={1500}
-                    height={1500}
-                    className=" w-full h-full scale-105 brightness-[0.4] hover:brightness-125 transition-all"
-                  />
-                </div>
-              ))}
-            </div>
+      <div
+        className=""
+        style={{
+          transform: `translate(${pos.x}px,${pos.y}px)`,
+          transformStyle: "preserve-3d",
+          willChange: "transform",
+          transitionBehavior: "ease-in-out",
+          transitionDuration: "1s",
+        }}
+      >
+        <div className=" flex gap-1">
+          {videos.slice(0, Math.abs(videos.length / 2)).map((v) => (
+            <Video path={v} key={v} />
           ))}
+        </div>
+        <div className=" flex gap-1 mt-2">
+          {videos.slice(Math.abs(videos.length / 2)).map((v) => (
+            <Video path={v} key={v} />
+          ))}
+        </div>
       </div>
     </div>
   );
 }
 
+function Temp() {
+  return (
+    <div className=" w-[380px] h-[500px] bg-primary  flex-shrink-0 brightness-75 hover:brightness-110 grayscale-[0.5] hover:grayscale-0"></div>
+  );
+}
+function Video({ path }: { path: string }) {
+  return (
+    <div className=" w-[380px] h-[500px] flex-shrink-0">
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className=" w-full h-full m-0 p-0 flex-shrink-0 object-cover grayscale-[0.5] brightness-50 hover:grayscale-0 hover:brightness-105"
+      >
+        <source src={path} type="video/mp4" />
+        Your browser does not support video.
+      </video>
+    </div>
+  );
+}
 export function ProjectGalleryMobile() {}

@@ -1,30 +1,34 @@
 import Image from "next/image";
 import _ from "lodash";
+import { InfiniteMovingCards } from "./ui/InfiniteMovingCard";
 export function HeroImageGallery({
   dataUrls,
 }: {
-  dataUrls: Map<string, string>;
+  dataUrls: Map<string, { url: string; dataUrl: string }>;
 }) {
+  const images = Array.from(dataUrls.keys());
   return (
     <div className=" lg:max-w-2xl md:max-w-sm grid md:grid-cols-2 grid-cols-1 gap-x-2 gap-y-6 relative">
-      <div className=" flex flex-col gap-2 animate-autoscrollup ">
-        {[1, 2, 3, 4].map((_, i) => (
-          <HeroImage
-            path={`/hero${_}.jpg`}
-            key={i}
-            dataUrl={dataUrls.get(`hero${_}`) || ""}
-          />
+      <InfiniteMovingCards direction="right" speed="normal" pauseOnHover={true}>
+        {images.slice(0, Math.abs(images.length / 2)).map((_, i) => (
+          <li key={_}>
+            <HeroImage
+              path={dataUrls.get(_)?.url!}
+              dataUrl={dataUrls.get(_)?.dataUrl!}
+            />
+          </li>
         ))}
-      </div>
-      <div className=" flex flex-col gap-2 animate-autoscrolldown ">
-        {[5, 6, 7, 8].map((_, i) => (
-          <HeroImage
-            path={`/hero${_}.jpg`}
-            key={i}
-            dataUrl={dataUrls.get(`hero${_}`) || ""}
-          />
+      </InfiniteMovingCards>
+      <InfiniteMovingCards direction="left" speed="normal" pauseOnHover={true}>
+        {images.slice(Math.abs(images.length / 2)).map((_, i) => (
+          <li key={_}>
+            <HeroImage
+              path={dataUrls.get(_)?.url!}
+              dataUrl={dataUrls.get(_)?.dataUrl!}
+            />
+          </li>
         ))}
-      </div>
+      </InfiniteMovingCards>
     </div>
   );
 }
@@ -47,6 +51,7 @@ export function HeroImage({
         objectFit="cover"
         blurDataURL={dataUrl}
         placeholder="blur"
+        loading="lazy"
       />
     </div>
   );
