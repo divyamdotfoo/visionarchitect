@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { RoughWhatsapp } from "./client/scroll-btns";
 type Props = {
   images: Map<string, { url: string; dataUrl: string }>;
 };
@@ -10,7 +11,7 @@ export function ContactUs(props: Props) {
       className=" h-screen max-w-6xl mx-auto md:pt-20 pt-4 px-8 snap-start"
       id="contact-us"
     >
-      <div className=" grid grid-cols-2 items-start w-full flex-wrap">
+      <div className=" grid grid-cols-2 items-start justify-items-center w-full flex-wrap">
         <div className=" relative flex">
           <Link href={"https://www.instagram.com/vision_architect_"}>
             <div className=" w-56 overflow-hidden rounded-lg">
@@ -31,11 +32,14 @@ export function ContactUs(props: Props) {
           <p className=" text-primary italic font-semibold text-2xl -translate-y-24 self-center">
             Follow us <br></br>on Instagram
           </p>
+          <RoughWhatsapp />
         </div>
-        <div className="relative grid grid-cols-1">
-          <ArrowDown />
-          <Youtube />
-          <div></div>
+        <div className="flex flex-col gap-4">
+          <div className=" relative">
+            <ArrowDown />
+            <Youtube />
+          </div>
+          <Location />
         </div>
       </div>
     </section>
@@ -44,27 +48,26 @@ export function ContactUs(props: Props) {
 
 function Location() {
   return (
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.837082822534!2d78.11370327604756!3d29.92659207498316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390946269ef95141%3A0x1132a044e9384712!2sRainbow%20Uniforms%20-%20School%20Uniforms%20Shop%20%7C%20Uniforms%20Shop%20in%20Jwalapur!5e0!3m2!1sen!2sin!4v1713530212600!5m2!1sen!2sin"
-      height="300"
-      className=" border-none rounded-lg md:w-72 w-full -translate-y-28"
-      loading="lazy"
-    ></iframe>
+    <div className=" w-96 h-52">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.489959369765!2d78.13552007604785!3d29.936582474978227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39094706cf38250d%3A0x4e520b77699b721!2sVISION%20ARCHITECT!5e0!3m2!1sen!2sin!4v1713635743112!5m2!1sen!2sin"
+        className=" border-none rounded-lg w-full h-full object-cover m-0 p-0"
+        loading="lazy"
+      ></iframe>
+    </div>
   );
 }
 
 function Youtube() {
   return (
-    <div className=" -translate-y-12">
+    <div className=" w-96 h-56">
       <iframe
-        width="560"
-        height="315"
         src="https://www.youtube.com/embed/Bv_zWcMQBaE?si=aoBpPQ0l8MZS0WjU"
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
-        className="rounded-lg scale-[0.7]"
+        className="rounded-lg object-cover m-0 p-0 w-full h-full"
       ></iframe>
     </div>
   );
@@ -102,7 +105,7 @@ function ArrowRight() {
 
 function ArrowDown() {
   return (
-    <div className=" absolute flex z-50 flex-col items-end gap-2 -translate-x-20 translate-y-40">
+    <div className=" absolute flex z-50 flex-col items-end gap-2 -bottom-8 -left-44">
       <svg
         width="50"
         height="50"

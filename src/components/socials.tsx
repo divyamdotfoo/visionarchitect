@@ -21,7 +21,7 @@ export function HandlesList() {
       <a href="mailto:divyam7091@gmail.com" target="_blank">
         <Mail />
       </a>
-      <Link href={"tel:+918755549338"}>
+      <Link href={"tel:+917668761558"}>
         <Phone className=" w-5 h-5" stroke="white" />
       </Link>
     </div>

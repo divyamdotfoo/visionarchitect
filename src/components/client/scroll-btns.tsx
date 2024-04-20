@@ -1,6 +1,9 @@
 "use client";
+import { ArrowUpRightIcon } from "lucide-react";
+import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { annotate } from "rough-notation";
 
 export function KnowMoreBtn() {
   const [designElement, setElement] = useState<HTMLElement | null>(null);
@@ -57,5 +60,61 @@ export function NavLink({
     >
       {name}
     </button>
+  );
+}
+
+export function RoughWhatsapp() {
+  const el = useRef<HTMLParagraphElement | null>(null);
+  const [inView, setView] = useState(false);
+  const [rough, setRough] = useState<any>(null);
+
+  const observerFunction: IntersectionObserverCallback = (entries) => {
+    if (entries[0].isIntersecting) setView(true);
+    else setView(false);
+  };
+
+  useEffect(() => {
+    if (!el.current) return;
+    const observer = new IntersectionObserver(observerFunction);
+    observer.observe(el.current);
+
+    // Create the annotation once
+    const annotation = annotate(el.current, {
+      type: "circle",
+      animate: true,
+      color: "white",
+      padding: 25,
+    });
+    setRough(annotation);
+
+    // Cleanup observer on unmount
+    return () => observer.disconnect();
+  }, []); // Empty dependency array ensures this runs only once on mount
+
+  useEffect(() => {
+    if (rough) {
+      if (inView) {
+        setTimeout(() => {
+          rough.show();
+        }, 200);
+      } else {
+        rough.hide(); // Assuming you want to hide the annotation when not in view
+      }
+    }
+  }, [inView, rough]); // Depend on inView and rough state
+
+  return (
+    <p
+      className="text-primary italic text-2xl font-semibold underline absolute bottom-8 right-8"
+      ref={el}
+    >
+      <Link href={"https://wa.me/917668761558"}>
+        Chat with us <br />
+        on Whatsapp{" "}
+        <span>
+          <ArrowUpRightIcon className="inline-block" />
+        </span>
+      </Link>
+    </p>
   );
 }
