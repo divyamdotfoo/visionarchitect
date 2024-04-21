@@ -63,7 +63,7 @@ export function HeroMobileGallery({
                   src={dataUrls.get(i.image)?.url!}
                   blurDataURL={dataUrls.get(i.image)?.dataUrl!}
                   placeholder="blur"
-                  className=" rounded-lg"
+                  className=" rounded-lg h-full w-full"
                   loading="eager"
                   width={750}
                   height={750}

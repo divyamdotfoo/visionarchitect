@@ -69,7 +69,7 @@ export function Location() {
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.489959369765!2d78.13552007604785!3d29.936582474978227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39094706cf38250d%3A0x4e520b77699b721!2sVISION%20ARCHITECT!5e0!3m2!1sen!2sin!4v1713635743112!5m2!1sen!2sin"
         className=" border-none rounded-lg w-full h-full object-cover m-0 p-0"
-        loading="lazy"
+        loading="eager"
       ></iframe>
     </div>
   );
@@ -85,6 +85,7 @@ export function Youtube() {
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
         className="rounded-lg object-cover m-0 p-0 w-full h-full"
+        loading="eager"
       ></iframe>
     </div>
   );

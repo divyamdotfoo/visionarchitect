@@ -19,24 +19,29 @@ export function ProjectGalleryMobile({ videos }: { videos: string[] }) {
     <div className=" w-full h-full md:hidden bg-card flex flex-col gap-1">
       <InfiniteMovingCardsHorizontal speed="normal" direction="right">
         {videos.slice(0, Math.abs(videos.length / 2)).map((v) => (
-          <Video key={v} path={v} />
+          <Temp key={v} />
         ))}
       </InfiniteMovingCardsHorizontal>
       <InfiniteMovingCardsHorizontal speed="normal" direction="left">
         {videos.slice(Math.abs(videos.length / 2)).map((v) => (
-          <Video key={v} path={v} />
+          <Temp key={v} />
         ))}
       </InfiniteMovingCardsHorizontal>
     </div>
   );
 }
 
+function Temp() {
+  return (
+    <div className="w-[200px] h-[40vh] m-0 p-0 flex-shrink-0 grayscale-[0.3] object-cover"></div>
+  );
+}
 function Video({ path }: { path: string }) {
   return (
     <video
       loop
       muted
-      className=" w-[200px] h-[40vh]  grayscale-[0.3] object-cover"
+      className=" w-[200px] h-[40vh] m-0 p-0 flex-shrink-0 grayscale-[0.3] object-cover"
       autoPlay
       playsInline
     >
