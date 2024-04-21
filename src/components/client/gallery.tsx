@@ -38,7 +38,7 @@ export function HeroMobileGallery({
       id="hero-mobile-gallery"
       className=" md:hidden h-screen w-80 mx-auto items-center snap-start pt-2"
     >
-      <div className="relative">
+      <div className="relative pt-2">
         <div className=" absolute top-4 left-0 right-0 h-8 bg-primary opacity-30 blur-xl"></div>
         <h2 className=" text-3xl font-bold">Architectural Delights</h2>
       </div>

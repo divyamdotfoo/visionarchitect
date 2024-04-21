@@ -16,37 +16,51 @@ export async function Projects() {
 
 export function ProjectGalleryMobile({ videos }: { videos: string[] }) {
   return (
-    <div className=" w-full h-full md:hidden bg-card flex flex-col gap-1">
-      <InfiniteMovingCardsHorizontal speed="normal" direction="right">
+    <div className=" w-full h-full md:hidden flex flex-col gap-1">
+      <InfiniteMovingCardsHorizontal
+        speed="normal"
+        direction="right"
+        pauseOnHover={false}
+      >
         {videos.slice(0, Math.abs(videos.length / 2)).map((v) => (
-          <Temp key={v} />
+          // <Temp key={v} />
+          <Video path={v} />
         ))}
       </InfiniteMovingCardsHorizontal>
-      <InfiniteMovingCardsHorizontal speed="normal" direction="left">
+      <InfiniteMovingCardsHorizontal
+        speed="normal"
+        direction="left"
+        pauseOnHover={false}
+      >
         {videos.slice(Math.abs(videos.length / 2)).map((v) => (
-          <Temp key={v} />
+          // <Temp key={v} />
+          <Video path={v} />
         ))}
       </InfiniteMovingCardsHorizontal>
     </div>
   );
 }
 
-function Temp() {
-  return (
-    <div className="w-[200px] h-[40vh] m-0 p-0 flex-shrink-0 grayscale-[0.3] object-cover"></div>
-  );
-}
 function Video({ path }: { path: string }) {
   return (
-    <video
-      loop
-      muted
-      className=" w-[200px] h-[40vh] m-0 p-0 flex-shrink-0 grayscale-[0.3] object-cover"
-      autoPlay
-      playsInline
-    >
-      <source src={path} type="video/mp4" />
-      Your browser does not support video.
-    </video>
+    <div>
+      <video
+        loop
+        muted
+        className=" w-[200px] h-[40vh] m-0 p-0 flex-shrink-0 grayscale-[0.3] object-cover"
+        autoPlay
+        playsInline
+        preload="metadata"
+      >
+        <source src={path} type="video/mp4" />
+        Your browser does not support video.
+      </video>
+    </div>
+  );
+}
+
+function Temp() {
+  return (
+    <div className="w-[200px] h-[40vh] bg-primary m-0 p-0 flex-shrink-0 grayscale-[0.3] object-cover"></div>
   );
 }
