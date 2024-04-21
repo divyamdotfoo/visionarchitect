@@ -34,6 +34,11 @@ const config = {
             transform: "translate(0px, calc(-20% - 0.5rem))",
           },
         },
+        scrollHorizontal: {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -45,6 +50,8 @@ const config = {
         spotlight: "spotlight 4s ease-out forwards",
         scroll:
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+        scrollHorizontal:
+          "scrollHorizontal var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },
     },
   },

@@ -14,9 +14,9 @@ export function Navbar() {
     <div className="hidden md:flex items-center justify-between lg:px-8 py-3 bg-background text-color fixed top-0 left-0 right-0 z-40 ">
       <Link href={"/"} className=" text-2xl text-primary">
         <Image
-          src={"/logo.png"}
+          src={"/logo.svg"}
           width={60}
-          height={40}
+          height={60}
           alt="Vision architect logo"
           loading="eager"
         />
@@ -52,7 +52,7 @@ export function NavbarMobile() {
     <div className=" flex items-center justify-between py-2 pl-4 pr-2 md:hidden">
       <Link href={"/"}>
         <Image
-          src={"/logo.png"}
+          src={"/logo.svg"}
           alt="Vision architect branding logo"
           width={60}
           height={60}

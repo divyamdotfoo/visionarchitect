@@ -36,7 +36,7 @@ export function HeroMobileGallery({
   return (
     <section
       id="hero-mobile-gallery"
-      className="h-screen w-80 mx-auto items-center snap-start pt-2"
+      className=" md:hidden h-screen w-80 mx-auto items-center snap-start pt-2"
     >
       <div className="relative">
         <div className=" absolute top-4 left-0 right-0 h-8 bg-primary opacity-30 blur-xl"></div>
@@ -59,10 +59,14 @@ export function HeroMobileGallery({
             >
               <div className=" w-80 h-[calc(100vh-300px)] bg-card rounded-lg flex items-center justify-center cursor-pointer">
                 <Image
-                  fill
-                  alt="jkldfjd"
+                  alt="Images of architecture designs"
                   src={dataUrls.get(i.image)?.url!}
+                  blurDataURL={dataUrls.get(i.image)?.dataUrl!}
+                  placeholder="blur"
                   className=" rounded-lg"
+                  loading="eager"
+                  width={750}
+                  height={750}
                 />
               </div>
             </TinderCard>
@@ -71,6 +75,7 @@ export function HeroMobileGallery({
         <div className=" flex items-center gap-[6px] absolute -bottom-10 left-1/2 -translate-x-1/2">
           {images.map((_, i) => (
             <div
+              key={i}
               className={`w-2 h-2 rounded-full ${
                 current === i ? "bg-primary" : " bg-white"
               }`}

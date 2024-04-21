@@ -8,12 +8,19 @@ const ubuntu = Ubuntu({
   weight: ["300", "400", "500", "700"],
 });
 export const metadata: Metadata = {
+  metadataBase: new URL("https://visionarchitect.in"),
   title: "Vision Architects",
   description:
-    "Vision architect is an architecture firm operational in haridwar(uttrakhand).",
+    "Vision architect is an architectural firm which takes contract based projects ranges from residential houses to commercial offices.Currently the firm is opertional in haridwar. The firm is owned by architect Ujjwal kappor.",
   applicationName: "Vision Architects",
   authors: [{ name: "Ujjwal Kapoor" }],
   category: "business architecture furniture construction",
+  openGraph: {
+    images: "/og.png",
+  },
+  twitter: {
+    images: "/og.png",
+  },
   keywords: [
     "Haridwar architecture firm",
     "Uttarakhand architectural services",

@@ -8,19 +8,34 @@ import { generateUrls } from "@/server";
 export default async function Page() {
   const designDescriptions: Omit<Designs[number], "images">[] = [
     {
-      header: "1200sqft Home",
-      description: "Some description",
-      folderName: "design1",
+      header: "Bedrooms",
+      description: "Cozy sleep retreats",
+      folderName: "bedrooms",
     },
     {
-      header: "Holiday Home",
-      description: "Some description",
-      folderName: "design2",
-    },
-    {
-      header: "Dining Area",
-      description: "Some description",
+      header: "Dining Delights",
+      description: "Feast in comfortable elegance",
       folderName: "dining",
+    },
+    {
+      header: "Living Rooms",
+      description: "Relax in stylish comfort",
+      folderName: "living-rooms",
+    },
+    {
+      header: "Kitchen Elegance",
+      description: "Gourmet delights begin here",
+      folderName: "kitchen",
+    },
+    {
+      header: "Terrace Tranquility",
+      description: "Embrace outdoor serenity",
+      folderName: "terrace",
+    },
+    {
+      header: "Home Office",
+      description: "Productivity in comfort mode",
+      folderName: "office",
     },
   ];
   const slugs = ["hero", "contact-us"];

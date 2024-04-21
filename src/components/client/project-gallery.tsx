@@ -76,4 +76,3 @@ function Video({ path }: { path: string }) {
     </div>
   );
 }
-export function ProjectGalleryMobile() {}

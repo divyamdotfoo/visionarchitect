@@ -30,6 +30,7 @@ export function DesignCarousel({ designs }: { designs: Designs }) {
         className=" max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto pt-4"
         opts={{
           loop: true,
+          align: "start",
         }}
       >
         <CarouselContent>

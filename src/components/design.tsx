@@ -62,7 +62,7 @@ export function DesignCard({
             width={1500}
             height={1500}
             alt={header}
-            className=" w-full h-full rounded-lg grayscale-[0.1] brightness-[0.5]"
+            className=" w-full h-full rounded-lg grayscale-[0.2] hover:grayscale-[0] brightness-[0.5] hover:brightness-[0.8] transition-all"
             objectFit="cover"
             placeholder="blur"
             blurDataURL={dataUrl}

@@ -1,5 +1,6 @@
 import { ProjectGallery } from "./client/project-gallery";
 import fs from "fs/promises";
+import { InfiniteMovingCardsHorizontal } from "./ui/InfiniteMovingCard";
 export async function Projects() {
   const videos = (await fs.readdir("public/videos")).map((v) => `/videos/${v}`);
   return (
@@ -8,22 +9,39 @@ export async function Projects() {
       className=" h-screen w-full snap-start md:pt-20 flex items-center justify-center"
     >
       <ProjectGallery videos={videos} />
+      <ProjectGalleryMobile videos={videos} />
     </section>
   );
 }
 
-export function ProjectHeader() {
+export function ProjectGalleryMobile({ videos }: { videos: string[] }) {
   return (
-    <div className=" flex flex-col gap-4 items-start">
-      <h2 className="md:text-6xl text-4xl font-medium text-primary">
-        Projects
-      </h2>
-      <h3 className=" opacity-80 font-medium max-w-lg">
-        Explore our amazing projects—beautiful homes, buildings, and spaces
-        designed with care and passion. Each picture shares a story of
-        creativity and practicality, showing our dedication to quality. Dive
-        into our work and see the craftsmanship that sets us apart.
-      </h3>
+    <div className=" w-full h-full md:hidden bg-card flex flex-col gap-1">
+      <InfiniteMovingCardsHorizontal speed="normal" direction="right">
+        {videos.slice(0, Math.abs(videos.length / 2)).map((v) => (
+          <Video key={v} path={v} />
+        ))}
+      </InfiniteMovingCardsHorizontal>
+      <InfiniteMovingCardsHorizontal speed="normal" direction="left">
+        {videos.slice(Math.abs(videos.length / 2)).map((v) => (
+          <Video key={v} path={v} />
+        ))}
+      </InfiniteMovingCardsHorizontal>
     </div>
+  );
+}
+
+function Video({ path }: { path: string }) {
+  return (
+    <video
+      loop
+      muted
+      className=" w-[200px] h-[40vh]  grayscale-[0.3] object-cover"
+      autoPlay
+      playsInline
+    >
+      <source src={path} type="video/mp4" />
+      Your browser does not support video.
+    </video>
   );
 }

@@ -29,19 +29,19 @@ export function HeroHeader() {
 }
 
 export function Sparkles({ children }: { children: React.ReactNode }) {
-  const left = Array.from({ length: _.random(1, 4) })
+  const left = Array.from({ length: _.random(1, 6) })
     .fill(0)
     .map(() => ({ x: _.random(-8, -2) + "%", y: _.random(-20, 120) + "%" }));
-  const right = Array.from({ length: _.random(1, 4) })
+  const right = Array.from({ length: _.random(1, 6) })
     .fill(0)
     .map(() => ({ x: _.random(102, 112) + "%", y: _.random(-20, 120) + "%" }));
-  const top = Array.from({ length: _.random(1, 4) })
+  const top = Array.from({ length: _.random(1, 6) })
     .fill(0)
     .map(() => ({
       x: _.random(0, 100) + "%",
       y: _.random(-20, -2) + "%",
     }));
-  const bottom = Array.from({ length: _.random(1, 4) })
+  const bottom = Array.from({ length: _.random(1, 6) })
     .fill(0)
     .map(() => ({
       x: _.random(0, 100) + "%",
