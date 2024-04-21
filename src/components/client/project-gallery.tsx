@@ -5,7 +5,7 @@ export function ProjectGallery({ videos }: { videos: string[] }) {
   const [pos, setPos] = useState({ x: 0, y: 0 });
   return (
     <div
-      className=" xl:w-[1100px] bg-card xl:h-[500px] overflow-hidden flex items-center justify-center"
+      className=" hidden md:flex xl:w-[1100px] bg-card xl:h-[500px] overflow-hidden items-center justify-center"
       onMouseMove={(e) => {
         const newX = e.clientX - e.currentTarget.getBoundingClientRect().left;
         const newY = e.clientY - e.currentTarget.getBoundingClientRect().top;
@@ -30,7 +30,7 @@ export function ProjectGallery({ videos }: { videos: string[] }) {
           transform: `translate(${pos.x}px,${pos.y}px)`,
           transformStyle: "preserve-3d",
           willChange: "transform",
-          transitionBehavior: "ease-in-out",
+          transitionBehavior: "ease-out",
           transitionDuration: "1s",
         }}
       >
@@ -56,7 +56,13 @@ function Temp() {
 }
 function Video({ path }: { path: string }) {
   return (
-    <div className=" w-[380px] h-[500px] flex-shrink-0">
+    <div
+      className=" w-[380px] h-[500px] flex-shrink-0"
+      style={{
+        perspective: "1000px",
+        transformStyle: "preserve-3d",
+      }}
+    >
       <video
         autoPlay
         muted

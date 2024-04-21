@@ -28,6 +28,7 @@ export default async function Page() {
     .concat(designDescriptions.map((d) => d.folderName))
     .map((_) => generateUrls(_));
   const urls = await Promise.all(promises);
+
   const designs: Designs = designDescriptions.map((d, i) => ({
     ...d,
     images: urls[i + slugs.length],

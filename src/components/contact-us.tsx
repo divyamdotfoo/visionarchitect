@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { RoughWhatsapp } from "./client/scroll-btns";
+import { ContactUsMobile } from "./client/contact-us-mobile";
 type Props = {
   images: Map<string, { url: string; dataUrl: string }>;
 };
@@ -8,26 +9,15 @@ export function ContactUs(props: Props) {
   const images = props.images;
   return (
     <section
-      className=" h-screen max-w-6xl mx-auto md:pt-20 pt-4 px-8 snap-start"
+      className=" h-screen max-w-6xl mx-auto md:pt-20 px-8 snap-start"
       id="contact-us"
     >
-      <div className=" grid grid-cols-2 items-start justify-items-center w-full flex-wrap">
+      <div className=" hidden md:grid grid-cols-2 items-start justify-items-center w-full flex-wrap">
         <div className=" relative flex">
-          <Link href={"https://www.instagram.com/vision_architect_"}>
-            <div className=" w-56 overflow-hidden rounded-lg">
-              <Image
-                src={images.get("instagram-profile")?.url!}
-                placeholder="blur"
-                blurDataURL={images.get("instagram-profile")?.dataUrl!}
-                width={1500}
-                height={1500}
-                className=" w-full h-full rounded-lg hover:brightness-105"
-                objectFit="cover"
-                alt="Instagram profile of vision architect by ujjwal kapoor"
-                loading="lazy"
-              />
-            </div>
-          </Link>
+          <InstaSS
+            src={images.get("instagram-profile")?.url!}
+            dataUrl={images.get("instagram-profile")?.dataUrl!}
+          />
           <ArrowRight />
           <p className=" text-primary italic font-semibold text-2xl -translate-y-24 self-center">
             Follow us <br></br>on Instagram
@@ -42,13 +32,40 @@ export function ContactUs(props: Props) {
           <Location />
         </div>
       </div>
+      <ContactUsMobile
+        src={images.get("instagram-profile")?.url!}
+        dataUrl={images.get("instagram-profile")?.dataUrl!}
+      />
     </section>
   );
 }
 
-function Location() {
+export function InstaSS({ src, dataUrl }: { src: string; dataUrl: string }) {
   return (
-    <div className=" w-96 h-52">
+    <Link href={"https://www.instagram.com/vision_architect_"}>
+      <div className=" md:w-56 w-full mx-auto md:mx-0 overflow-hidden rounded-lg relative">
+        <Image
+          src={src}
+          placeholder="blur"
+          blurDataURL={dataUrl}
+          width={1500}
+          height={1500}
+          className=" w-full h-full rounded-lg hover:brightness-105 z-0"
+          objectFit="cover"
+          alt="Instagram profile of vision architect by ujjwal kapoor"
+          loading="lazy"
+        />
+        <p className=" md:hidden absolute bottom-10 text-primary font-semibold z-50 text-2xl">
+          Follow us
+        </p>
+      </div>
+    </Link>
+  );
+}
+
+export function Location() {
+  return (
+    <div className="md:w-96 w-full md:h-56 h-full pb-8 md:pb-0 ">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.489959369765!2d78.13552007604785!3d29.936582474978227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39094706cf38250d%3A0x4e520b77699b721!2sVISION%20ARCHITECT!5e0!3m2!1sen!2sin!4v1713635743112!5m2!1sen!2sin"
         className=" border-none rounded-lg w-full h-full object-cover m-0 p-0"
@@ -58,9 +75,9 @@ function Location() {
   );
 }
 
-function Youtube() {
+export function Youtube() {
   return (
-    <div className=" w-96 h-56">
+    <div className=" md:w-96 w-full md:h-56 h-52">
       <iframe
         src="https://www.youtube.com/embed/Bv_zWcMQBaE?si=aoBpPQ0l8MZS0WjU"
         title="YouTube video player"

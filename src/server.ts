@@ -12,7 +12,6 @@ export const generateUrl = async (slug: string) => {
     const { base64 } = await getPlaiceholder(file);
     urls.set(path.split(".")[0], base64);
   }
-  console.log(urls);
   return urls;
 };
 
@@ -29,6 +28,5 @@ export const generateUrls = async (dirname: string) => {
       dataUrl: base64,
     });
   }
-  console.log(urls);
   return urls;
 };
