@@ -3,6 +3,13 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 export function ProjectGallery({ videos }: { videos: string[] }) {
   const [pos, setPos] = useState({ x: 0, y: 0 });
+  const [isMobile, setMobile] = useState(false);
+  useEffect(() => {
+    if (window) {
+      if (window.innerWidth <= 768) setMobile(true);
+    }
+  }, []);
+  if (isMobile) return null;
   return (
     <div
       className=" hidden md:flex xl:w-[1100px] bg-card xl:h-[500px] overflow-hidden items-center justify-center"
@@ -49,11 +56,6 @@ export function ProjectGallery({ videos }: { videos: string[] }) {
   );
 }
 
-function Temp() {
-  return (
-    <div className=" w-[380px] h-[500px] bg-primary  flex-shrink-0 brightness-75 hover:brightness-110 grayscale-[0.5] hover:grayscale-0"></div>
-  );
-}
 function Video({ path }: { path: string }) {
   return (
     <div

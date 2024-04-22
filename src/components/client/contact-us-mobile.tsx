@@ -29,8 +29,11 @@ export function ContactUsMobile({
     });
   }, [api]);
   return (
-    <div className="flex md:hidden">
-      <Carousel className=" max-w-xs sm:max-w-sm w-full" setApi={setApi}>
+    <div className="md:hidden  flex flex-col gap-2 items-center">
+      <p className=" text-primary text-3xl font-semibold self-start pl-4">
+        Follow Us
+      </p>
+      <Carousel className=" w-72 sm:max-w-sm" setApi={setApi}>
         <CarouselContent className="">
           <CarouselItem className="">
             <InstaSS src={src} dataUrl={dataUrl} />
@@ -43,21 +46,23 @@ export function ContactUsMobile({
             <Location />
           </CarouselItem>
         </CarouselContent>
-        <div className=" w-full flex items-center  justify-between pt-4 px-8 relative">
-          <div
-            className={`w-3 h-3 rounded-full bg-primary animate-alert`}
-          ></div>
+        <div className=" w-full flex items-center  justify-between pt-5 px-8 relative">
+          <button
+            className={`w-4 h-4 rounded-full bg-primary animate-alert`}
+            onClick={() => api?.scrollPrev()}
+          ></button>
           <motion.div
             className=" bg-primary h-1 absolute"
             initial={{ width: "10%" }}
             animate={{ width: current === 2 ? "77%" : "10%" }}
             transition={{ duration: 1 }}
           ></motion.div>
-          <div
-            className={`w-3 h-3 rounded-full animate-alert transition-all ${
+          <button
+            className={`w-4 h-4 rounded-full animate-alert transition-all ${
               current === 2 ? " bg-primary" : "bg-white"
             }`}
-          ></div>
+            onClick={() => api?.scrollNext()}
+          ></button>
         </div>
       </Carousel>
     </div>

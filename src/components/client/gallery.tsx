@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TinderCard from "react-tinder-card";
 import { nanoid } from "nanoid";
 
@@ -16,6 +16,7 @@ export function HeroMobileGallery({
   const [swipeCards, setSwipeCards] = useState(images.slice(0, 3));
   const [index, setIndex] = useState(3);
   const [current, setCurrent] = useState(0);
+  const [isMobile, setMobile] = useState(true);
   const swipeHandler = (id: string, idx: number) => {
     setCurrent((prev) => (prev + 1) % 20);
     const card = swipeCards.find((card) => card?.id === id)!;
@@ -32,15 +33,22 @@ export function HeroMobileGallery({
     }
     setSwipeCards(newCards);
   };
-
+  useEffect(() => {
+    if (window) {
+      if (window.innerWidth > 768) setMobile(false);
+    }
+  }, []);
+  if (!isMobile) return null;
   return (
     <section
       id="hero-mobile-gallery"
       className=" md:hidden h-screen w-80 mx-auto items-center snap-start pt-2"
     >
       <div className="relative pt-2">
-        <div className=" absolute top-4 left-0 right-0 h-8 bg-primary opacity-30 blur-xl"></div>
-        <h2 className=" text-3xl font-bold">Architectural Delights</h2>
+        {/* <div className=" absolute top-0 left-0 right-0 h-8 bg-primary opacity-30 blur-xl"></div> */}
+        <h2 className=" text-3xl font-bold text-primary">
+          Architectural Delights
+        </h2>
       </div>
       <div className=" pt-4 relative h-[calc(100vh-300px)]">
         {swipeCards.map((i, idx) => (
@@ -48,7 +56,7 @@ export function HeroMobileGallery({
             key={i.id}
             className=" absolute"
             style={{
-              zIndex: images.length * 10 - idx * 10,
+              zIndex: images.length * 5 - idx * 5,
             }}
           >
             <TinderCard
@@ -63,7 +71,7 @@ export function HeroMobileGallery({
                   src={dataUrls.get(i.image)?.url!}
                   blurDataURL={dataUrls.get(i.image)?.dataUrl!}
                   placeholder="blur"
-                  className=" rounded-lg h-full w-full"
+                  className=" rounded-lg h-full w-full brightness-110"
                   loading="eager"
                   width={400}
                   height={400}

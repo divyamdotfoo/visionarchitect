@@ -19,8 +19,10 @@ export function About({ dataUrls }: { dataUrls: Map<string, string> }) {
             />
           </div>
           <div className="">
-            <h2 className=" font-semibold text-lg">Ujjwal Kapoor</h2>
-            <h3 className=" text-base opacity-90">BS in Architecture (2018)</h3>
+            <h2 className=" font-semibold text-lg">Ar.Ujjwal Kapoor</h2>
+            <h3 className=" text-base opacity-90 tracking-tight">
+              Bachelors in Architecture (2018)
+            </h3>
             <div className="md:hidden pt-3">
               <HandlesList />
             </div>
@@ -31,9 +33,11 @@ export function About({ dataUrls }: { dataUrls: Map<string, string> }) {
         </div>
         <div className=" max-w-xl tracking-tight opacity-90 pt-4 md:pt-0 flex flex-col gap-2">
           <p>
-            Welcome to Vision Architect, founded by{" "}
-            <span className=" font-semibold text-primary">Ujjwal Kapoor</span>,
-            a visionary architect with a Bachelor of Science degree in
+            Welcome to Vision Architect, founded by <br className="sm:hidden" />
+            <span className=" font-semibold text-primary">
+              Ar. Ujjwal Kapoor
+            </span>
+            , a visionary architect with a Bachelor of Science degree in
             architecture from 2018. With six years of excellence in the
             industry, Vision Architect is renowned for turning architectural
             visions into stunning realities.
@@ -41,7 +45,7 @@ export function About({ dataUrls }: { dataUrls: Map<string, string> }) {
           <p>
             Our firm specializes in contract-based projects, where every design
             is crafted with meticulous attention to detail and a deep
-            understanding of our clients needs. At Vision Architect, we believe
+            understanding of our clients' needs. At Vision Architect, we believe
             in the power of innovative design and sustainable solutions.
           </p>
           <p>

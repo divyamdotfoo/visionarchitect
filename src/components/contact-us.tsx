@@ -42,22 +42,19 @@ export function ContactUs(props: Props) {
 
 export function InstaSS({ src, dataUrl }: { src: string; dataUrl: string }) {
   return (
-    <Link href={"https://www.instagram.com/vision_architect_"}>
-      <div className=" md:w-56 w-full mx-auto md:mx-0 overflow-hidden rounded-lg relative">
+    <Link href={"https://www.instagram.com/vision_architect_"} target="_blank">
+      <div className=" md:w-56 md:h-auto overflow-hidden rounded-lg">
         <Image
           src={src}
           placeholder="blur"
           blurDataURL={dataUrl}
-          width={1500}
-          height={1500}
+          width={400}
+          height={400}
           className=" w-full h-full rounded-lg hover:brightness-105 z-0"
           objectFit="cover"
           alt="Instagram profile of vision architect by ujjwal kapoor"
           loading="eager"
         />
-        <p className=" md:hidden absolute bottom-10 text-primary font-semibold z-50 text-2xl">
-          Follow us
-        </p>
       </div>
     </Link>
   );

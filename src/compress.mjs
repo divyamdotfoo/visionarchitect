@@ -13,7 +13,7 @@ async function main() {
     const processVideo = (videoName) => {
       const command = `ffmpeg -i ${getVidPath(
         videoName
-      )} -vf "scale=200:286" -c:v libx264 -crf 23 -preset slow -force_key_frames "expr:gte(t,n_forced*1)" ${getOutputPath(
+      )} -vf "scale=240:300" -an -c:v libx264 -crf 23 -preset slow -force_key_frames "expr:gte(t,n_forced*1)" ${getOutputPath(
         videoName
       )}`;
 

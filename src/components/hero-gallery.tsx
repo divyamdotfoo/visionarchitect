@@ -45,8 +45,8 @@ export function HeroImage({
       <Image
         src={path}
         alt="hero images"
-        width={400}
-        height={400}
+        width={350}
+        height={350}
         className=" rounded-xl w-full h-full scale-105"
         objectFit="cover"
         blurDataURL={dataUrl}

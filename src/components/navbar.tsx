@@ -8,7 +8,10 @@ import {
 } from "@/components/ui/sheet";
 import { MenuIcon } from "lucide-react";
 import { Separator } from "./ui/separator";
-import { NavLink as ScrollableNavLink } from "@/components/client/scroll-btns";
+import {
+  HamLink,
+  NavLink as ScrollableNavLink,
+} from "@/components/client/scroll-btns";
 export function Navbar() {
   return (
     <div className="hidden md:flex items-center justify-between lg:px-8 py-3 bg-background text-color fixed top-0 left-0 right-0 z-40 ">
@@ -88,7 +91,7 @@ export function HamburgerMenu() {
             <MenuIcon className=" w-10 h-10 translate-y-1" />
           </button>
         </SheetTrigger>
-        <SheetContent className="">
+        <SheetContent className="z-[1000]">
           <div className=" flex items-start flex-col gap-6 w-full">
             <div className=" flex items-start flex-col gap-1">
               <h2 className=" text-2xl font-extrabold text-primary">
@@ -111,29 +114,6 @@ export function HamburgerMenu() {
           </div>
         </SheetContent>
       </Sheet>
-    </div>
-  );
-}
-
-function HamLink({
-  separator,
-  path,
-  name,
-}: {
-  separator: boolean;
-  path: string;
-  name: string;
-}) {
-  return (
-    <div className=" w-full">
-      <Link
-        href={path}
-        className=" text-xl block mb-4 text-color hover:text-primary font-medium"
-      >
-        {name}
-      </Link>
-
-      {separator ? <Separator className=" w-full bg-white" /> : null}
     </div>
   );
 }

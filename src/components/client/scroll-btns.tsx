@@ -4,6 +4,8 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { annotate } from "rough-notation";
+import { Separator } from "../ui/separator";
+import { SheetClose } from "../ui/sheet";
 
 export function KnowMoreBtn() {
   const [designElement, setElement] = useState<HTMLElement | null>(null);
@@ -116,5 +118,31 @@ export function RoughWhatsapp() {
         </span>
       </Link>
     </p>
+  );
+}
+
+export function HamLink({
+  separator,
+  path,
+  name,
+}: {
+  separator: boolean;
+  path: string;
+  name: string;
+}) {
+  const router = useRouter();
+  return (
+    <div className=" w-full">
+      <SheetClose>
+        <p
+          className=" text-xl block mb-4 text-color hover:text-primary font-medium"
+          onClick={() => router.push(path)}
+        >
+          {name}
+        </p>
+
+        {separator ? <Separator className=" w-full bg-white" /> : null}
+      </SheetClose>
+    </div>
   );
 }
