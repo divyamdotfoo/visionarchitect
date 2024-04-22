@@ -59,8 +59,8 @@ export function DesignCard({
         <div className=" relative rounded-lg overflow-hidden shadow-md shadow-secondary w-80 h-[calc(100vh-300px)] md:h-80">
           <Image
             src={thumbnail}
-            width={1500}
-            height={1500}
+            width={400}
+            height={400}
             alt={header}
             className=" w-full h-full rounded-lg grayscale-[0.2] hover:grayscale-[0] brightness-[0.5] hover:brightness-[0.8] transition-all"
             objectFit="cover"
@@ -82,8 +82,8 @@ export function DesignCard({
               <CarouselItem key={header} className=" overflow-hidden">
                 <Image
                   src={images.get(image)?.url!}
-                  width={1500}
-                  height={1500}
+                  width={400}
+                  height={400}
                   alt={header}
                   className=" w-full h-full scale-105"
                   objectFit="cover"

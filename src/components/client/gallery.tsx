@@ -65,8 +65,8 @@ export function HeroMobileGallery({
                   placeholder="blur"
                   className=" rounded-lg h-full w-full"
                   loading="eager"
-                  width={750}
-                  height={750}
+                  width={400}
+                  height={400}
                 />
               </div>
             </TinderCard>
