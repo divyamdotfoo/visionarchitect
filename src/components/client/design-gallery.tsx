@@ -14,7 +14,6 @@ export function DesignCarousel({ designs }: { designs: Designs }) {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
-  console.log(designs);
 
   useEffect(() => {
     if (!api) return;
@@ -59,11 +58,11 @@ export function DesignCarousel({ designs }: { designs: Designs }) {
         <CarouselPrevious className=" invisible md:visible" />
         <CarouselNext className=" invisible md:visible" />
       </Carousel>
-      <div className=" flex items-center gap-2">
+      <div className=" flex items-center gap-4">
         {Array.from({ length: count }).map((_, i) => (
           <div
             key={i}
-            className={`w-2 h-2 rounded-full ${
+            className={`w-[10px] h-[10px] rounded-full ${
               i + 1 === current ? "bg-primary" : "bg-white"
             }`}
           ></div>

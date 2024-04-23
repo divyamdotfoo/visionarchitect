@@ -42,7 +42,7 @@ export function HeroMobileGallery({
   return (
     <section
       id="hero-mobile-gallery"
-      className=" md:hidden h-screen w-[360px] flex flex-col items-start  gap-4 h-md:gap-8 h-lg:gap-12 mx-auto snap-start pt-4"
+      className=" md:hidden h-screen w-[350px] flex flex-col items-start  gap-4 h-md:gap-8 h-lg:gap-12 mx-auto snap-start pt-4"
     >
       <div className="relative pt-4">
         <h2 className=" text-3xl font-bold text-primary">
@@ -52,7 +52,7 @@ export function HeroMobileGallery({
           Explore the beauty of architectural wonders <br /> in every frame.
         </h3>
       </div>
-      <div className="w-[360px] flex justify-center  relative h-sm:h-[calc(100vh-310px)] h-md:h-[calc(100vh-360px)] h-lg:h-[calc(100vh-380px)]">
+      <div className="w-[350px] flex justify-center  relative h-sm:h-[calc(100vh-310px)] h-md:h-[calc(100vh-360px)] h-lg:h-[calc(100vh-380px)]">
         {swipeCards.map((i, idx) => (
           <div
             key={i.id}
@@ -83,11 +83,11 @@ export function HeroMobileGallery({
             </TinderCard>
           </div>
         ))}
-        <div className=" flex items-center self-center gap-[6px] absolute -bottom-10 left-1/2 -translate-x-1/2">
+        <div className=" flex items-center self-center gap-2 absolute -bottom-10 left-1/2 -translate-x-1/2">
           {images.map((_, i) => (
             <div
               key={i}
-              className={`w-2 h-2 rounded-full ${
+              className={`w-[10px] h-[10px] rounded-full ${
                 current === i ? "bg-primary" : " bg-white"
               }`}
             ></div>

@@ -2,6 +2,12 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { InfiniteMovingCardsHorizontal } from "../ui/InfiniteMovingCard";
+import {
+  Carousel,
+  CarouselApi,
+  CarouselContent,
+  CarouselItem,
+} from "../ui/carousel";
 export function ProjectGallery({
   videos,
 }: {
@@ -94,14 +100,81 @@ export function ProjectGalleryMobile({
   videos: { video: string; poster: string }[];
 }) {
   const [isMobile, setMobile] = useState(false);
+  const [vids, setVids] = useState(videos.slice(0, 3));
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+    setCurrent(api.selectedScrollSnap() + 1);
+    setCount(api.scrollSnapList().length);
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1);
+      if (vids.length < videos.length) {
+        console.log("hello");
+
+        setVids((prevVids) => {
+          const nextVideoIndex = prevVids.length;
+          if (nextVideoIndex < videos.length) {
+            return [...prevVids, videos[nextVideoIndex]];
+          } else {
+            return prevVids;
+          }
+        });
+      }
+    });
+  }, [api]);
   useEffect(() => {
     if (window) {
       if (window.innerWidth < 750) setMobile(true);
     }
   }, []);
   if (!isMobile) return null;
-  3;
-  return null;
+  return (
+    <section
+      id="projects-mobile"
+      className=" md:hidden h-screen w-[350px] flex flex-col items-start  gap-4 h-md:gap-8 h-lg:gap-12 mx-auto snap-start pt-4"
+    >
+      <div className="pt-4">
+        <h2 className=" text-3xl font-bold text-primary">Projects</h2>
+        <h3 className=" opacity-80 font-medium pt-1">
+          Experience our projects in motion, where every video unveils the
+          artistry and innovation behind our creations.
+        </h3>
+      </div>
+      <div className="w-[350px] flex justify-center  relative h-sm:h-[calc(100vh-310px)] h-md:h-[calc(100vh-360px)] h-lg:h-[calc(100vh-380px)]">
+        <Carousel
+          className=" w-full h-full"
+          opts={{
+            loop: true,
+            align: "start",
+          }}
+          setApi={setApi}
+        >
+          <CarouselContent>
+            {vids.map((v) => (
+              <CarouselItem key={v.video}>
+                <div className=" bg-slate-600 h-sm:h-[calc(100vh-310px)] h-md:h-[calc(100vh-360px)] h-lg:h-[calc(100vh-380px)] w-[350px] rounded-lg">
+                  <VideoMobile path={v.video} poster={v.poster} />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      </div>
+      <div className=" flex items-center gap-3 self-center">
+        {Array.from({ length: videos.length }).map((_, i) => (
+          <div
+            key={i}
+            className={`w-[10px] h-[10px] rounded-full ${
+              i + 1 === current ? "bg-primary" : "bg-white"
+            }`}
+          ></div>
+        ))}
+      </div>
+    </section>
+  );
 }
 
 function VideoMobile({ path, poster }: { path: string; poster: string }) {
@@ -110,7 +183,7 @@ function VideoMobile({ path, poster }: { path: string; poster: string }) {
       <video
         loop
         muted
-        className=" w-[200px] h-[40vh] m-0 p-0 flex-shrink-0 grayscale-[0.3] object-cover"
+        className=" w-full rounded-lg h-sm:h-[calc(100vh-310px)] h-md:h-[calc(100vh-360px)] h-lg:h-[calc(100vh-380px)] m-0 p-0 flex-shrink-0 object-cover"
         autoPlay
         playsInline
         preload="metadata"

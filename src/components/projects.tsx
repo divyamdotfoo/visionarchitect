@@ -7,12 +7,14 @@ export async function Projects() {
     poster: `/poster-images/${v.split(".")[0]}.jpg`,
   }));
   return (
-    <section
-      id="projects"
-      className=" h-screen w-full snap-start md:pt-20 flex items-center justify-center"
-    >
-      <ProjectGallery videos={compressedVideos} />
+    <>
+      <section
+        id="projects"
+        className="hidden h-screen w-full snap-start md:pt-20 md:flex items-center justify-center"
+      >
+        <ProjectGallery videos={compressedVideos} />
+      </section>
       <ProjectGalleryMobile videos={compressedVideos} />
-    </section>
+    </>
   );
 }

@@ -1,13 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { MenuIcon } from "lucide-react";
-import { Separator } from "./ui/separator";
 import {
   HamLink,
   NavLink as ScrollableNavLink,
@@ -79,7 +73,7 @@ export function NavbarMobile() {
 export function HamburgerMenu() {
   const hamLinks = [
     { name: "Designs", path: "/#designs" },
-    { name: "Projects", path: "/#projects" },
+    { name: "Projects", path: "/#projects-mobile" },
     { name: "Customers", path: "/#customers" },
     { name: "About", path: "/about" },
   ];

@@ -133,16 +133,15 @@ export function HamLink({
   const router = useRouter();
   return (
     <div className=" w-full">
-      <SheetClose>
+      <SheetClose className="">
         <p
-          className=" text-xl block mb-4 text-color hover:text-primary font-medium"
+          className="text-xl block mb-4 text-color hover:text-primary font-medium"
           onClick={() => router.push(path)}
         >
           {name}
         </p>
-
-        {separator ? <Separator className=" w-full bg-white" /> : null}
       </SheetClose>
+      {separator ? <Separator className=" w-full bg-white" /> : null}
     </div>
   );
 }
