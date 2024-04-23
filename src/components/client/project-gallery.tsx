@@ -1,7 +1,5 @@
 "use client";
-import Image from "next/image";
 import { useEffect, useState } from "react";
-import { InfiniteMovingCardsHorizontal } from "../ui/InfiniteMovingCard";
 import {
   Carousel,
   CarouselApi,
@@ -85,6 +83,7 @@ function Video({ path, poster }: { path: string; poster: string }) {
         loop
         playsInline
         className=" w-full h-full m-0 p-0 flex-shrink-0 object-cover grayscale-[0.5] brightness-50 hover:grayscale-0 hover:brightness-105"
+        preload="metadata"
         poster={poster}
       >
         <source src={path} type="video/mp4" />

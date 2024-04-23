@@ -10,17 +10,19 @@ import {
 } from "../ui/carousel";
 import { InstaSS, Youtube, Location } from "../contact-us";
 export function ContactUsMobile({
-  src,
-  dataUrl,
+  images,
 }: {
-  src: string;
-  dataUrl: string;
+  images: Map<string, { url: string; dataUrl: string }>;
 }) {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    if (window) {
+      if (window.innerWidth < 768) setIsMobile(true);
+    }
     if (!api) return;
     setCurrent(api.selectedScrollSnap() + 1);
     setCount(api.scrollSnapList().length);
@@ -28,6 +30,7 @@ export function ContactUsMobile({
       setCurrent(api.selectedScrollSnap() + 1);
     });
   }, [api]);
+  if (!isMobile) return null;
   return (
     <div className="md:hidden  flex flex-col gap-2 items-center pt-4">
       <p className=" text-primary text-3xl font-semibold self-start pl-4 pb-4">
@@ -36,11 +39,17 @@ export function ContactUsMobile({
       <Carousel className=" w-72 sm:max-w-sm" setApi={setApi}>
         <CarouselContent className="">
           <CarouselItem className="">
-            <InstaSS src={src} dataUrl={dataUrl} />
+            <InstaSS
+              src={images.get("instagram-profile")?.url!}
+              dataUrl={images.get("instagram-profile")?.dataUrl!}
+            />
           </CarouselItem>
           <CarouselItem className=" flex flex-col gap-4">
             <div>
-              <Youtube />
+              <Youtube
+                src={images.get("youtube")?.url!}
+                dataUrl={images.get("youtube")?.dataUrl!}
+              />
               <Arrow />
             </div>
             <Location />

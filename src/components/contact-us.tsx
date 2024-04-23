@@ -27,15 +27,15 @@ export function ContactUs(props: Props) {
         <div className="flex flex-col gap-4">
           <div className=" relative">
             <ArrowDown />
-            <Youtube />
+            <Youtube
+              src={images.get("youtube")?.url!}
+              dataUrl={images.get("youtube")?.dataUrl!}
+            />
           </div>
           <Location />
         </div>
       </div>
-      <ContactUsMobile
-        src={images.get("instagram-profile")?.url!}
-        dataUrl={images.get("instagram-profile")?.dataUrl!}
-      />
+      <ContactUsMobile images={images} />
     </section>
   );
 }
@@ -48,12 +48,13 @@ export function InstaSS({ src, dataUrl }: { src: string; dataUrl: string }) {
           src={src}
           placeholder="blur"
           blurDataURL={dataUrl}
-          width={400}
-          height={400}
+          width={384}
+          height={640}
           className=" w-full h-full rounded-lg hover:brightness-105 z-0"
           objectFit="cover"
           alt="Instagram profile of vision architect by ujjwal kapoor"
           loading="eager"
+          sizes="(max-width: 400px) 100vw, 400px"
         />
       </div>
     </Link>
@@ -72,19 +73,24 @@ export function Location() {
   );
 }
 
-export function Youtube() {
+export function Youtube({ src, dataUrl }: { src: string; dataUrl: string }) {
   return (
-    <div className=" md:w-96 w-full md:h-56 h-52">
-      <iframe
-        src="https://www.youtube.com/embed/Bv_zWcMQBaE?si=aoBpPQ0l8MZS0WjU"
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerPolicy="strict-origin-when-cross-origin"
-        allowFullScreen
-        className="rounded-lg object-cover m-0 p-0 w-full h-full"
-        loading="eager"
-      ></iframe>
-    </div>
+    <Link href={"https://youtube.com/@visionarchitect3537"} target="_blank">
+      <div className="md:w-96 w-full md:h-56 h-52 rounded-lg cursor-pointer">
+        <Image
+          src={src}
+          placeholder="blur"
+          blurDataURL={dataUrl}
+          width={384}
+          height={640}
+          className=" w-full h-full rounded-lg hover:brightness-105 z-0"
+          objectFit="cover"
+          alt="Youtube channel vision architect"
+          loading="lazy"
+          sizes="(max-width: 400px) 100vw, 400px"
+        />
+      </div>
+    </Link>
   );
 }
 
