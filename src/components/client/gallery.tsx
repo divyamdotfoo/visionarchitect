@@ -13,12 +13,12 @@ export function HeroMobileGallery({
     image: _,
     id: nanoid(5),
   }));
-  const [swipeCards, setSwipeCards] = useState(images.slice(0, 3));
+  const [swipeCards, setSwipeCards] = useState(images.slice(0, 2));
   const [index, setIndex] = useState(3);
   const [current, setCurrent] = useState(0);
-  const [isMobile, setMobile] = useState(true);
+  const [isMobile, setMobile] = useState(false);
   const swipeHandler = (id: string, idx: number) => {
-    setCurrent((prev) => (prev + 1) % 20);
+    setCurrent((prev) => ((prev + 1) % images.length) - 1);
     const card = swipeCards.find((card) => card?.id === id)!;
     const clonedCard: (typeof images)[number] = {
       image: card.image,
@@ -35,22 +35,24 @@ export function HeroMobileGallery({
   };
   useEffect(() => {
     if (window) {
-      if (window.innerWidth > 768) setMobile(false);
+      if (window.innerWidth < 768) setMobile(true);
     }
   }, []);
   if (!isMobile) return null;
   return (
     <section
       id="hero-mobile-gallery"
-      className=" md:hidden h-screen w-80 mx-auto items-center snap-start pt-2"
+      className=" md:hidden h-screen w-[360px] flex flex-col items-start  gap-4 h-md:gap-8 h-lg:gap-12 mx-auto snap-start pt-4"
     >
-      <div className="relative pt-2">
-        {/* <div className=" absolute top-0 left-0 right-0 h-8 bg-primary opacity-30 blur-xl"></div> */}
+      <div className="relative pt-4">
         <h2 className=" text-3xl font-bold text-primary">
           Architectural Delights
         </h2>
+        <h3 className=" opacity-80 font-medium pt-1">
+          Explore the beauty of architectural wonders <br /> in every frame.
+        </h3>
       </div>
-      <div className=" pt-4 relative h-[calc(100vh-300px)]">
+      <div className="w-[360px] flex justify-center  relative h-sm:h-[calc(100vh-310px)] h-md:h-[calc(100vh-360px)] h-lg:h-[calc(100vh-380px)]">
         {swipeCards.map((i, idx) => (
           <div
             key={i.id}
@@ -65,7 +67,7 @@ export function HeroMobileGallery({
               }}
               preventSwipe={["top", "bottom"]}
             >
-              <div className=" w-80 h-[calc(100vh-300px)] bg-card rounded-lg flex items-center justify-center cursor-pointer">
+              <div className=" w-[350px] h-lg:h-[calc(100vh-380px)] h-sm:h-[calc(100vh-310px)] h-md:h-[calc(100vh-360px)]  bg-card rounded-lg flex items-center justify-center cursor-pointer">
                 <Image
                   alt="Images of architecture designs"
                   src={dataUrls.get(i.image)?.url!}
@@ -73,14 +75,15 @@ export function HeroMobileGallery({
                   placeholder="blur"
                   className=" rounded-lg h-full w-full brightness-110"
                   loading="eager"
-                  width={400}
-                  height={400}
+                  width={384}
+                  height={640}
+                  sizes="(max-width: 400px) 100vw, 400px"
                 />
               </div>
             </TinderCard>
           </div>
         ))}
-        <div className=" flex items-center gap-[6px] absolute -bottom-10 left-1/2 -translate-x-1/2">
+        <div className=" flex items-center self-center gap-[6px] absolute -bottom-10 left-1/2 -translate-x-1/2">
           {images.map((_, i) => (
             <div
               key={i}

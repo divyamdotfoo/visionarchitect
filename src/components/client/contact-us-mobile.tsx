@@ -29,8 +29,8 @@ export function ContactUsMobile({
     });
   }, [api]);
   return (
-    <div className="md:hidden  flex flex-col gap-2 items-center">
-      <p className=" text-primary text-3xl font-semibold self-start pl-4">
+    <div className="md:hidden  flex flex-col gap-2 items-center pt-4">
+      <p className=" text-primary text-3xl font-semibold self-start pl-4 pb-4">
         Follow Us
       </p>
       <Carousel className=" w-72 sm:max-w-sm" setApi={setApi}>

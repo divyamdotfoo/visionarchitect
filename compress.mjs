@@ -7,13 +7,13 @@ async function main() {
     const videos = await fs.readdir("public/videos"); // Assuming you want to read from a "videos" directory
     const getVidPath = (vidName) => path.join("public", "videos", vidName);
     const getOutputPath = (vidName) =>
-      path.join("public", "compressed-videos", vidName);
+      path.join("public", "compressed-videos-small", vidName);
     const getPosterPath = (vidName) =>
       path.join("public", "poster-images", vidName.split(".")[0] + ".jpg");
     const processVideo = (videoName) => {
       const command = `ffmpeg -i ${getVidPath(
         videoName
-      )} -vf "scale=240:300" -an -c:v libx264 -crf 23 -preset slow -force_key_frames "expr:gte(t,n_forced*1)" ${getOutputPath(
+      )} -vf "scale=380:-1,crop=380:500" -t -an -c:v libx264 -crf 23 -preset slow -force_key_frames "expr:gte(t,n_forced*1)" ${getOutputPath(
         videoName
       )}`;
 

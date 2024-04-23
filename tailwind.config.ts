@@ -11,6 +11,11 @@ const config = {
   prefix: "",
   theme: {
     extend: {
+      screens: {
+        "h-sm": { raw: "(min-height: 667px)" },
+        "h-md": { raw: "(min-height: 768px)" },
+        "h-lg": { raw: "(min-height: 900px)" },
+      },
       colors: {
         background: "var(--background)",
         color: "var(--color)",

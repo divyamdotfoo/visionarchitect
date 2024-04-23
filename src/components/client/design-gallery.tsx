@@ -14,6 +14,7 @@ export function DesignCarousel({ designs }: { designs: Designs }) {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
+  console.log(designs);
 
   useEffect(() => {
     if (!api) return;
@@ -24,27 +25,33 @@ export function DesignCarousel({ designs }: { designs: Designs }) {
     });
   }, [api]);
   return (
-    <div className=" flex flex-col items-center gap-2">
+    <div className=" flex flex-col items-center gap-4">
       <Carousel
         setApi={setApi}
-        className=" max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto pt-4"
+        className="max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto h-sm:pt-4 h-md:pt-8 md:pt-[16px!important]"
         opts={{
           loop: true,
           align: "start",
         }}
       >
         <CarouselContent>
-          {designs.map((d) => (
+          {designs.map((d, i) => (
             <CarouselItem
               key={d.folderName}
-              className="md:basis-1/2 lg:basis-1/3"
+              className="md:basis-1/2 xl:basis-1/3"
             >
               <DesignCard
                 images={d.images}
                 header={d.header}
                 description={d.description}
-                dataUrl={d.images.get(Array.from(d.images.keys())[0])?.dataUrl!}
-                thumbnail={d.images.get(Array.from(d.images.keys())[0])?.url!}
+                dataUrl={
+                  d.images.get(Array.from(d.images.keys()).reverse()[0])
+                    ?.dataUrl!
+                }
+                thumbnail={
+                  d.images.get(Array.from(d.images.keys()).reverse()[0])?.url!
+                }
+                loadThumbnailEager={i < 3 ? true : false}
               />
             </CarouselItem>
           ))}
