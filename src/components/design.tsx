@@ -19,7 +19,7 @@ export function Design({ designs }: { designs: Designs }) {
   return (
     <section
       id="designs"
-      className=" h-screen md:w-full md:pt-20 pt-4 w-[360px] mx-auto snap-start "
+      className=" h-screen md:w-full md:pt-20 pt-2 w-[360px] mx-auto snap-start "
     >
       <div className=" flex flex-col gap-2 max-w-xs lg:max-w-5xl xl:max-w-5xl mx-auto">
         <h2 className=" md:text-6xl text-4xl font-medium text-primary">

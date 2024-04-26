@@ -42,9 +42,9 @@ export function HeroMobileGallery({
   return (
     <section
       id="hero-mobile-gallery"
-      className=" md:hidden h-screen w-[350px] flex flex-col items-start  gap-4 h-md:gap-8 h-lg:gap-12 mx-auto snap-start pt-4"
+      className=" md:hidden h-screen w-[350px] flex flex-col items-start  gap-4 h-md:gap-8 h-lg:gap-12 mx-auto snap-start"
     >
-      <div className="relative pt-4">
+      <div className="relative pt-2">
         <h2 className=" text-3xl font-bold text-primary">
           Architectural Delights
         </h2>

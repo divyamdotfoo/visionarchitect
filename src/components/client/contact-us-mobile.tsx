@@ -32,8 +32,8 @@ export function ContactUsMobile({
   }, [api]);
   if (!isMobile) return null;
   return (
-    <div className="md:hidden  flex flex-col gap-2 items-center pt-4">
-      <p className=" text-primary text-3xl font-semibold self-start pl-4 pb-4">
+    <div className="md:hidden  flex flex-col gap-2 items-center pt-1">
+      <p className=" text-primary text-3xl font-semibold self-start pl-4 pb-2">
         Follow Us
       </p>
       <Carousel className=" w-72 sm:max-w-sm" setApi={setApi}>
@@ -55,7 +55,7 @@ export function ContactUsMobile({
             <Location />
           </CarouselItem>
         </CarouselContent>
-        <div className=" w-full flex items-center  justify-between pt-5 px-8 relative">
+        <div className=" w-full flex items-center  justify-between pt-2 px-8 relative">
           <button
             className={`w-4 h-4 rounded-full bg-primary animate-alert`}
             onClick={() => api?.scrollPrev()}

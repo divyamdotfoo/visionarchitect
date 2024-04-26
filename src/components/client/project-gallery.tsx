@@ -133,9 +133,9 @@ export function ProjectGalleryMobile({
   return (
     <section
       id="projects-mobile"
-      className=" md:hidden h-screen w-[350px] flex flex-col items-start  gap-4 h-md:gap-8 h-lg:gap-12 mx-auto snap-start pt-4"
+      className=" md:hidden h-screen w-[350px] flex flex-col items-start  gap-4 h-md:gap-8 h-lg:gap-12 mx-auto snap-start"
     >
-      <div className="pt-4">
+      <div className="pt-2">
         <h2 className=" text-3xl font-bold text-primary">Projects</h2>
         <h3 className=" opacity-80 font-medium pt-1">
           Experience our projects in motion, where every video unveils the
