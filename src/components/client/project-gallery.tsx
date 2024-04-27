@@ -133,7 +133,7 @@ export function ProjectGalleryMobile({
   return (
     <section
       id="projects-mobile"
-      className=" md:hidden h-screen w-[350px] flex flex-col items-start  gap-4 h-md:gap-8 h-lg:gap-12 mx-auto snap-start"
+      className=" md:hidden h-screen w-[340px] flex flex-col items-start  gap-4 h-md:gap-8 h-lg:gap-12 mx-auto snap-start"
     >
       <div className="pt-2">
         <h2 className=" text-3xl font-bold text-primary">Projects</h2>
@@ -142,7 +142,7 @@ export function ProjectGalleryMobile({
           artistry and innovation behind our creations.
         </h3>
       </div>
-      <div className="w-[350px] flex justify-center  relative h-sm:h-[calc(100vh-310px)] h-md:h-[calc(100vh-360px)] h-lg:h-[calc(100vh-380px)]">
+      <div className="w-[340px] flex justify-center  relative h-sm:h-[calc(100vh-310px)] h-md:h-[calc(100vh-360px)] h-lg:h-[calc(100vh-380px)]">
         <Carousel
           className=" w-full h-full"
           opts={{
@@ -154,7 +154,7 @@ export function ProjectGalleryMobile({
           <CarouselContent>
             {vids.map((v) => (
               <CarouselItem key={v.video}>
-                <div className=" bg-slate-600 h-sm:h-[calc(100vh-310px)] h-md:h-[calc(100vh-360px)] h-lg:h-[calc(100vh-380px)] w-[350px] rounded-lg">
+                <div className=" bg-slate-600 h-sm:h-[calc(100vh-310px)] h-md:h-[calc(100vh-360px)] h-lg:h-[calc(100vh-380px)] w-[340px] rounded-lg">
                   <VideoMobile path={v.video} poster={v.poster} />
                 </div>
               </CarouselItem>

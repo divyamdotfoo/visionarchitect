@@ -1,34 +1,34 @@
 import Image from "next/image";
 import { HandlesList } from "./socials";
-export function About({ dataUrls }: { dataUrls: Map<string, string> }) {
+import ClientProfile from "../../public/client-profile.jpg";
+import { Playfair_Display } from "next/font/google";
+import { cn } from "@/lib/utils";
+const playfair = Playfair_Display({ subsets: ["latin"] });
+export function About() {
   return (
     <div className=" w-full h-screen flex justify-center md:pt-24 px-4 pb-8 pt-2">
       <div className=" md:flex md:items-start md:flex-row gap-10 flex-col">
-        <div className=" flex md:flex-col gap-2 items-center">
-          <div className=" border-2 border-secondary md:rounded-lg md:min-w-48 md:min-h-72 sm:w-40 sm:min-h-40 w-28 h-28 md:h-auto rounded-full overflow-hidden">
+        <div className=" flex md:flex-col md:gap-2 gap-4 items-center md:max-w-[300px]">
+          <div className="md:rounded-lg rounded-full md:w-[200px] md:h-auto w-32 h-32 overflow-hidden">
             <Image
-              src={"/client-profile.jpg"}
-              width={1000}
-              height={0}
-              className=" w-full h-full rounded-lg md:scale-105 scale-150 translate-y-6 sm:translate-y-8 md:translate-y-0"
+              src={ClientProfile}
+              className=" md:rounded-lg scale-105 rounded-full "
               objectFit="cover"
               alt="Profile picture of Ujjwal kapoor(founder of Vision architect)."
               placeholder="blur"
-              blurDataURL={dataUrls.get("client-profile") || ""}
-              loading="lazy"
+              loading="eager"
             />
           </div>
-          <div className="">
-            <h2 className=" font-semibold text-lg">Ar.Ujjwal Kapoor</h2>
+          <div className=" flex-col md:items-center items-start flex">
+            <h2 className={cn("font-semibold text-2xl", playfair.className)}>
+              Ar. Ujjwal Kapoor
+            </h2>
             <h3 className=" text-base opacity-90 tracking-tight">
-              Bachelors in Architecture (2018)
+              Bachelors in Architecture
             </h3>
-            <div className="md:hidden pt-3">
+            <div className="pt-2">
               <HandlesList />
             </div>
-          </div>
-          <div className=" hidden md:block">
-            <HandlesList />
           </div>
         </div>
         <div className=" max-w-xl tracking-tight opacity-90 pt-4 md:pt-0 flex flex-col gap-2">

@@ -21,7 +21,6 @@ export function Navbar() {
       <div className=" flex items-center justify-between gap-8">
         <ScrollableNavLink id="designs" name="Designs" />
         <ScrollableNavLink id="projects" name="Projects" />
-        <ScrollableNavLink id="customers" name="Customers" />
         <NavLink path="/about" name="About" />
       </div>
       <ScrollableNavLink
@@ -74,7 +73,6 @@ export function HamburgerMenu() {
   const hamLinks = [
     { name: "Designs", path: "/#designs" },
     { name: "Projects", path: "/#projects-mobile" },
-    { name: "Customers", path: "/#customers" },
     { name: "About", path: "/about" },
   ];
   return (
