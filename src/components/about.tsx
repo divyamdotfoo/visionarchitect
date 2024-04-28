@@ -20,7 +20,7 @@ export function About() {
             />
           </div>
           <div className=" flex-col md:items-center items-start flex">
-            <h2 className={cn("font-semibold text-2xl", playfair.className)}>
+            <h2 className={cn("font-semibold text-xl", playfair.className)}>
               Ar. Ujjwal Kapoor
             </h2>
             <h3 className=" text-base opacity-90 tracking-tight">
