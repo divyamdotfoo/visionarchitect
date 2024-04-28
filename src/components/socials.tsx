@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Instagram, Mail, Twitter, WhatsApp } from "./icons";
-import { Phone, PhoneIcon } from "lucide-react";
+import { Instagram, Mail, WhatsApp } from "./icons";
+import { Phone } from "lucide-react";
 export function HandlesList() {
   return (
     <div className=" flex items-center gap-3">
@@ -18,7 +18,7 @@ export function HandlesList() {
       >
         <Instagram />
       </Link>
-      <a href="mailto:divyam7091@gmail.com" target="_blank">
+      <a href="mailto:visionarchitect29@gmail.com" target="_blank">
         <Mail />
       </a>
       <Link href={"tel:+917668761558"}>
