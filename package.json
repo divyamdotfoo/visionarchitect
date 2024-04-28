@@ -27,7 +27,7 @@
     "react-dom": "^18",
     "react-tinder-card": "^1.6.4",
     "rough-notation": "^0.5.1",
-    "sharp": "^0.33.3",
+    "sharp": "^0.32.6",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7"
   },
