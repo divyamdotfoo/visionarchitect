@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto, Ubuntu } from "next/font/google";
+import { Ubuntu } from "next/font/google";
 import "./globals.css";
 import { Navbar, NavbarMobile } from "@/components/navbar";
 
@@ -16,10 +16,28 @@ export const metadata: Metadata = {
   authors: [{ name: "Ujjwal Kapoor" }],
   category: "business architecture furniture construction",
   openGraph: {
-    images: "/og.png",
+    type: "website",
+    locale: "en_US",
+    url: "https://visionarchitect.in",
+    title: "vision architect",
+    description:
+      "Vision architect is an architectural firm which takes contract based projects ranges from residential houses to commercial offices.Currently the firm is opertional in haridwar. The firm is owned by architect Ujjwal kappor.",
+    images: [
+      {
+        url: "https://visionarchitect.in/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "visionarchitect",
+      },
+    ],
   },
   twitter: {
-    images: "/og.png",
+    card: "summary_large_image",
+    title: "vision architect",
+    description:
+      "Vision architect is an architectural firm which takes contract based projects ranges from residential houses to commercial offices.Currently the firm is opertional in haridwar. The firm is owned by architect Ujjwal kappor.",
+    images: ["https://visionarchitect.in/og-image.png"],
+    creator: "visionarchitect",
   },
   keywords: [
     "Haridwar architecture firm",

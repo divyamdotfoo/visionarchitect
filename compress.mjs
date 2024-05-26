@@ -1,6 +1,7 @@
-import { exec } from "node:child_process";
+import { exec, execSync } from "node:child_process";
 import path from "path";
 import fs from "fs/promises";
+import { readdirSync } from "node:fs";
 
 async function main() {
   try {
@@ -39,3 +40,25 @@ async function main() {
     console.error("Error reading directory or executing command:", error);
   }
 }
+
+const compressImage = () => {
+  const rootDir = "public/poster-images";
+  const outputDir = "public/temp";
+  const images = readdirSync(path.join(process.cwd(), rootDir));
+  for (const image of images) {
+    console.log(path.join(process.cwd(), rootDir, image));
+    console.log(path.join(process.cwd(), "temp", image));
+    exec(
+      `ffmpeg -i ${path.join(
+        process.cwd(),
+        rootDir,
+        image
+      )} -q:v 31 ${path.join(path.join(process.cwd(), outputDir, image))}`,
+      (err, stdout, stderr) => {
+        console.log("generated path", image);
+      }
+    );
+  }
+};
+
+compressImage();
