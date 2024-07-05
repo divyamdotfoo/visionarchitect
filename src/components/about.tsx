@@ -32,7 +32,7 @@ export function About() {
           </div>
         </div>
         <div className=" max-w-xl tracking-tight opacity-90 pt-4 md:pt-0 flex flex-col gap-2">
-          <p>
+          <p classname="text-pretty">
             Welcome to Vision Architect, founded by <br className="sm:hidden" />
             <span className=" font-semibold text-primary">
               Ar. Ujjwal Kapoor
@@ -42,20 +42,20 @@ export function About() {
             industry, Vision Architect is renowned for turning architectural
             visions into stunning realities.
           </p>
-          <p>
+          <p classname="text-pretty">
             Our firm specializes in contract-based projects, where every design
             is crafted with meticulous attention to detail and a deep
             understanding of our clients' needs. At Vision Architect, we believe
             in the power of innovative design and sustainable solutions.
           </p>
-          <p>
+          <p classname="text-pretty">
             Our portfolio showcases a diverse range of projects, from
             residential masterpieces to commercial marvels, each reflecting our
             commitment to quality and creativity. Collaborating closely with
             clients, we bring their ideas to life, blending aesthetics with
             functionality seamlessly.
           </p>
-          <p>
+          <p classname="text-pretty">
             Driven by a passion for architecture and a dedication to excellence,
             Vision Architect continues to push boundaries and set new standards
             in the industry. Join us on a journey of architectural innovation
